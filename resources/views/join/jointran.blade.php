@@ -15,7 +15,7 @@
                         <tr>
                             <th>Country</th>
                             <th>State</th>
-                         
+                            <th>Audio</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,7 +24,7 @@
                             <tr>
                                 <td>{{ $row->text }}</td>
                                 <td>{{ $row->Text }}</td>
-                               
+                                <td>{{ $row->audio }}</td>
                             </tr>
                         @endforeach
                     </tbody>

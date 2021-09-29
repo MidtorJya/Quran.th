@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
@@ -13,7 +13,12 @@ class TestController extends Controller
     }
     public function homepage()
     {
-        return view('quran.home');
+        $surahs = DB::table('surahs')
+        ->select('surah_name')
+        ->get();
+
+        return view('quran.home',compact('surahs'));
+        //return view('quran.home');
     } 
     public function tafseer_vdo()
     {

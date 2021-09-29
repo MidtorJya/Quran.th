@@ -7,7 +7,7 @@
                         <thead>
                             <tr>
                             
-                            <th scope="col">ชื่อแผนก</th>
+                           
                             <th scope="col">พนักงาน</th>
             
                             </tr>
@@ -16,7 +16,7 @@
                         
                         @foreach($daftarsurah as $row)
                             <tr>
-                               <td>{{ $row->index }}</td>
+                             
                                 <td>{{ $row->surah_indonesia}}</td>
                                
                             </tr>

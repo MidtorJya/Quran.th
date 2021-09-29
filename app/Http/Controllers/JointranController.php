@@ -11,7 +11,8 @@ class JointranController extends Controller
     {
         $tran = DB::table('arabicquran')
         ->join('th_thai','th_thai.index','=','arabicquran.index')
-        ->select('arabicquran.Text', 'th_thai.text')
+        //->join('th_thai','th_thai.index','=','arabicquran.index')
+        ->select('arabicquran.Text', 'th_thai.text','th_thai.audio')
         //->where('arabic.index','=',$index_id)
         ->get();
         //return dd($tran);

@@ -33,7 +33,7 @@ return view('quran.home');
 
 
 
-//Route::resource('posts',PostController::class);
+Route::resource('posts',PostController::class);
 
 
 //Route::resource('tafseer',TafseerController::class);
@@ -61,13 +61,13 @@ Route::get ('/home' ,[App\Http\Controllers\HomeController::class, 'index'])->nam
 Route::get ('admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('is_admin');
 
 //Route::get('join_table', [JointableController::class, 'index']);
-Route::get('quran/v_translation', [JoinTranslationController::class, 'index']);
+//Route::get('quran/v_translation', [JoinTranslationController::class, 'index']);
 //Route::get('quran/detail', [DetailController::class, 'index']);
 
 Route::get('admin/index',[AdminController::class,'index']);
 
 Route::get('/', function () {
-  return view('quran.home');
+  return redirect()->route('homepage');
   });
 
 //detail
@@ -84,3 +84,5 @@ Route::get('quran/tafseer_home', [TestController::class, 'tafseer_home'])->name(
 Route::get('quran/tafseer_detail', [TestController::class, 'tafseer_detail'])->name('tafseer_detail');
 Route::get('quran/navbar', [TestController::class, 'navbar'])->name('navbar');
 Route::get('quran/data', [QuranController::class, 'index']);
+Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
+//Route::get('quran/home', [JoinTranslationController::class, 'index']);

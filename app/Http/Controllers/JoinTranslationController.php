@@ -18,7 +18,7 @@ class JoinTranslationController extends Controller
         ->select('index','surah_indonesia')
         ->get();
 
-        return view('quran.v_translation',compact('daftarsurah'));
+        return view('quran.join_surah',compact('daftarsurah'));
          	/*Above code will produce following query
 
         Select 
