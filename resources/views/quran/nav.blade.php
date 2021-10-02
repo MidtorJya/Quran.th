@@ -43,7 +43,12 @@
         font-size: 28px;
         font-weight: normal;
         
-     }
+      }
+      
+     .btn 
+     {
+     direction: rtl;
+    }
 
      
 .footer {

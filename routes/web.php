@@ -12,6 +12,7 @@ use App\Http\Controllers\exController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Jointrancontroller;
 use App\Http\Controllers\QuranController;
+use App\Http\Controllers\QuransController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,12 +78,13 @@ Route::get('quran/nav', [DetailController::class, 'index']);
 Route::get('join/jointran', [JointranController::class, 'index']);
 
 //show q text x tran
-Route::get('quran/detail', [TestController::class, 'detail'])->name('detail');
-Route::get('quran/home', [TestController::class, 'homepage'])->name('homepage');
-Route::get('quran/tafseer_vdo', [TestController::class, 'tafseer_vdo'])->name('tafseer_vdo');
-Route::get('quran/tafseer_home', [TestController::class, 'tafseer_home'])->name('tafseer_home');
-Route::get('quran/tafseer_detail', [TestController::class, 'tafseer_detail'])->name('tafseer_detail');
-Route::get('quran/navbar', [TestController::class, 'navbar'])->name('navbar');
+Route::get('/', [QuransController::class, 'homepage']);
+Route::get('/arabic{datasurah}', [QuransController::class, 'arabic'])->name('arabic');
+Route::get('quran/home', [QuransController::class, 'homepage'])->name('homepage');
+Route::get('quran/tafseer_vdo', [QuransController::class, 'tafseer_vdo'])->name('tafseer_vdo');
+Route::get('quran/tafseer_home', [QuransController::class, 'tafseer_home'])->name('tafseer_home');
+Route::get('quran/tafseer_detail', [QuransController::class, 'tafseer_detail'])->name('tafseer_detail');
+Route::get('quran/navbar', [QuransController::class, 'navbar'])->name('navbar');
 Route::get('quran/data', [QuranController::class, 'index']);
 Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
 //Route::get('quran/home', [JoinTranslationController::class, 'index']);
@@ -91,8 +93,8 @@ Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
 Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminindex');
 
 //Test using model
-Route::get('/qurans', [QuranController::class, 'index']);
-Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
+// Route::get('/qurans', [QuranController::class, 'index']);
+// Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
 
 //Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminindex');
 

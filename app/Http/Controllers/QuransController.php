@@ -8,8 +8,7 @@ use App\Models\Arabic;
 use App\Models\Datasurah;
 use App\Models\Thai;
 
-
-class QuranController extends Controller
+class QuransController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +17,15 @@ class QuranController extends Controller
      */
     public function index()
     {
+        //
+    }
+
+    public function homepage()
+    {
         
-            $datasurahs = Datasurah::paginate(10);
+            $datasurahs = Datasurah::all();
             //return dd($datasurahs);
-            return view('qurans.index', [
+            return view('quran.home', [
                 'datasurahs' => $datasurahs
             ]);
         
@@ -36,20 +40,47 @@ class QuranController extends Controller
         
         //dd($arabics->toArray());
       
-        return dd($arabics);
+       //return dd($arabics);
       
        //return view('test.detail', [
         //dd($ayats->toArray());
         //'ayats' => $ayats]);
        
-      return view('qurans.detail',compact('arabics'));
+      return view('quran.detail',compact('arabics'));
         //    'ayats' => $ayats
         //]);
     }
 
 
+    public function detail()
+    {
+        return view('quran.detail');
+    }
+    // public function homepage()
+    // {
+    //     $surahs = DB::table('datasurahs')
+    //     ->select('th_name')
+    //     ->get();
 
-
+    //     return view('quran.home',compact('surahs'));
+    //     //return view('quran.home');
+    // } 
+    public function tafseer_vdo()
+    {
+        return view('quran.tafseer_vdo');
+    }
+    public function tafseer_home()
+    {
+        return view('quran.tafseer_home');
+    }
+    public function tafseer_detail()
+    {
+        return view('quran.tafseer_detail');
+    }
+    public function navbar()
+    {
+        return view('quran.navbar');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -116,5 +147,3 @@ class QuranController extends Controller
         //
     }
 }
-
-
