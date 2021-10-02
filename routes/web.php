@@ -87,8 +87,12 @@ Route::get('quran/data', [QuranController::class, 'index']);
 Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
 //Route::get('quran/home', [JoinTranslationController::class, 'index']);
 
+
 Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminindex');
 
 //Test using model
 Route::get('/qurans', [QuranController::class, 'index']);
 Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
+
+Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminindex');
+
