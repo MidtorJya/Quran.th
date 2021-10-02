@@ -94,5 +94,5 @@ Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminin
 Route::get('/qurans', [QuranController::class, 'index']);
 Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
 
-Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminindex');
+//Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminindex');
 
