@@ -11,7 +11,7 @@
         margin-bottom: 10px;  "  
         type="buttom" class="btn btn-outline-secondary" >
   
-        <a href="{{ route('detail') }}">{{ $row->surah_name}}</a>
+        <a href="{{ route('detail') }}">{{ $row->th_name}}</a>
         @endforeach
 </div>
 

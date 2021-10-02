@@ -13,8 +13,8 @@ class TestController extends Controller
     }
     public function homepage()
     {
-        $surahs = DB::table('surahs')
-        ->select('surah_name')
+        $surahs = DB::table('datasurahs')
+        ->select('th_name')
         ->get();
 
         return view('quran.home',compact('surahs'));

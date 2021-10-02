@@ -58,13 +58,13 @@ Route::get('/view/{is}',[PageController::class,'viewtafseer']);
 Auth::routes();
 
 Route::get ('/home' ,[App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get ('admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get ('admin/adminHome',[HomeController::class,'adminHome'])->name('admin.home')->middleware('is_admin');
 
 //Route::get('join_table', [JointableController::class, 'index']);
 //Route::get('quran/v_translation', [JoinTranslationController::class, 'index']);
 //Route::get('quran/detail', [DetailController::class, 'index']);
 
-Route::get('admin/index',[AdminController::class,'index']);
+//Route::get('admin/index',[AdminController::class,'index']);
 
 Route::get('/', function () {
   return redirect()->route('homepage');
@@ -86,3 +86,9 @@ Route::get('quran/navbar', [TestController::class, 'navbar'])->name('navbar');
 Route::get('quran/data', [QuranController::class, 'index']);
 Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
 //Route::get('quran/home', [JoinTranslationController::class, 'index']);
+
+Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminindex');
+
+//Test using model
+Route::get('/qurans', [QuranController::class, 'index']);
+Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
