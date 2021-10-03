@@ -69,6 +69,7 @@
     background-size:cover;
     padding-bottom:80px;
   }
+ 
 
 * {box-sizing: border-box;}
 
