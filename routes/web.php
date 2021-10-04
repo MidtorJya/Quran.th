@@ -82,12 +82,15 @@ Route::get('join/jointran', [JointranController::class, 'index']);
 //show q text x tran
 Route::get('/', [QuransController::class, 'homepage']);
 Route::get('/arabic{datasurah}', [QuransController::class, 'arabic'])->name('arabic');
+ //Route::get('/arabic/{datasurah}/tafseer_detail/{data}', function (Arabic $datasurah, Tafseer $data) {
+//   //
+ //})->name('quran.detail');
 
 Route::get('quran/home', [QuransController::class, 'homepage'])->name('homepage');
 Route::get('quran/tafseer_vdo', [QuransController::class, 'tafseer_vdo'])->name('tafseer_vdo');
 
-Route::get('/quran/tafseer_home', [TafseersController::class, 'tafseer_home'])->name('tafseer_home');
-Route::get('/quran/tafseer_detail{data}', [TafseersController::class, 'tafseer_detail'])->name('tafseer_detail');
+Route::get('/quran/tafseer_home', [QuransController::class, 'tafseer_home'])->name('tafseer_home');
+Route::get('/quran/tafseer_detail{data}', [QuransController::class, 'tafseer_detail'])->name('tafseer_detail');
 
 Route::get('quran/navbar', [QuransController::class, 'navbar'])->name('navbar');
 Route::get('quran/data', [QuranController::class, 'index']);

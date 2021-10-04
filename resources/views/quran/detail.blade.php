@@ -6,7 +6,8 @@
  <div style = background-color:#00000; class="search-area">
     <div class="container">
       <br>
- 
+
+    <a href="{{ route('tafseer_home') }}" class="link-dark" >ตัฟซีร ซูเราะห์ {{$arabics->th_name}} </a>
     
     <br>
   <ul class="list-group list-group-horizontal">

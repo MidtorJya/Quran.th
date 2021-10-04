@@ -21,36 +21,36 @@ class TafseersController extends Controller
     }
 
 
-    public function tafseer_home()
-    {
+    // public function tafseer_home()
+    // {
         
-            $datasurahs = Datasurah::paginate(20);
-            //return dd($datasurahs);
-            return view('quran.tafseer_home', [
-                'datasurahs' => $datasurahs
-            ]);
+    //         $datasurahs = Datasurah::paginate(20);
+    //         //return dd($datasurahs);
+    //         return view('quran.tafseer_home', [
+    //             'datasurahs' => $datasurahs
+    //         ]);
         
-    }
+    // }
 
-    public function tafseer_detail($id)
-    {
-        $tafseers = Datasurah::with('tafseer')->find($id);
-       // ->firstOrFail();
+    // public function tafseer_detail($id)
+    // {
+    //     $tafseers = Datasurah::with('tafseer')->find($id);
+    //    // ->firstOrFail();
 
-       // $plucked = $ayats->pluck('ayat.text', 'trans.text');
+    //    // $plucked = $ayats->pluck('ayat.text', 'trans.text');
         
-        //dd($tafseers->toArray());
+    //    // dd($tafseers->toArray());
       
-       //return dd($arabics);
+    //    //return dd($arabics);
       
-       //return view('test.detail', [
-        //dd($ayats->toArray());
-        //'ayats' => $ayats]);
+    //    //return view('test.detail', [
+    //     //dd($ayats->toArray());
+    //     //'ayats' => $ayats]);
        
-      return view('quran.tafseer_detail',compact('tafseers'));
-        //    'ayats' => $ayats
-        //]);
-    }
+    //   return view('quran.tafseer_detail',compact('tafseers'));
+    //     //    'ayats' => $ayats
+    //     //]);
+    // }
 
     /**
      * Show the form for creating a new resource.

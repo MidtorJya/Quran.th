@@ -33,7 +33,7 @@ class QuransController extends Controller
     }
 
     public function arabic($id)
-    {
+    {  // $datasurahs = Datasurah::all();
         $arabics = Datasurah::with('arabic.thais')->find($id);
        // ->firstOrFail();
 
@@ -41,18 +41,47 @@ class QuransController extends Controller
         
         //dd($arabics->toArray());
       
+       //return dd($datasurahs);
        //return dd($arabics);
-      
        //return view('test.detail', [
         //dd($ayats->toArray());
         //'ayats' => $ayats]);
-       
+    
       return view('quran.detail',compact('arabics'));
-        //    'ayats' => $ayats
-        //]);
+    //   [
+    //    //'datasurahs' => $datasurahs,
+    //    'arabics' => $arabics
+    // ]);
+    //     //    'ayats' => $ayats
+    //     //]);
     }
 
 
+
+    public function tafseer_home()
+    {
+        
+            $datasurahs = Datasurah::paginate(20);
+           //return dd($datasurahs);
+            return view('quran.tafseer_home', [
+                'datasurahs' => $datasurahs
+            ]);
+        
+    }
+
+    public function tafseer_detail($id)
+    {
+        $tafseers = Datasurah::with('tafseer')->find($id);
+      
+        
+       //dd($tafseers->toArray());
+      
+    
+       
+      return view('quran.tafseer_detail',compact('tafseers'));
+        //    'ayats' => $ayats
+        //]);
+    }
     // public function detail()
     // {
     //     return view('quran.detail');
@@ -70,14 +99,14 @@ class QuransController extends Controller
     {
         return view('quran.tafseer_vdo');
     }
-    public function tafseer_home()
-    {
-        return view('quran.tafseer_home');
-    }
-    public function tafseer_detail()
-    {
-        return view('quran.tafseer_detail');
-    }
+    // public function tafseer_home()
+    // {
+    //     return view('quran.tafseer_home');
+    // }
+    // public function tafseer_detail()
+    // {
+    //     return view('quran.tafseer_detail');
+    // }
     public function navbar()
     {
         return view('quran.navbar');
