@@ -8,8 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Tafseer extends Model
 {
     use HasFactory;
-    public function data()
-    {
-        return $this->belongsTo('App/Models/Datasurah');
-    }
+    protected $fillable=['name','description','file'];
 }

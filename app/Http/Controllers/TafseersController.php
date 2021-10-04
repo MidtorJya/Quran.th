@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Arabic;
 use App\Models\Datasurah;
 use App\Models\Thai;
-use App\Models\Tafseer;
 
-class QuransController extends Controller
+class TafseersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,25 +20,26 @@ class QuransController extends Controller
         //
     }
 
-    public function homepage()
+
+    public function tafseer_home()
     {
         
-            $datasurahs = Datasurah::all();
+            $datasurahs = Datasurah::paginate(20);
             //return dd($datasurahs);
-            return view('quran.home', [
+            return view('quran.tafseer_home', [
                 'datasurahs' => $datasurahs
             ]);
         
     }
 
-    public function arabic($id)
+    public function tafseer_detail($id)
     {
-        $arabics = Datasurah::with('arabic.thais')->find($id);
+        $tafseers = Datasurah::with('tafseer')->find($id);
        // ->firstOrFail();
 
        // $plucked = $ayats->pluck('ayat.text', 'trans.text');
         
-        //dd($arabics->toArray());
+        //dd($tafseers->toArray());
       
        //return dd($arabics);
       
@@ -47,41 +47,11 @@ class QuransController extends Controller
         //dd($ayats->toArray());
         //'ayats' => $ayats]);
        
-      return view('quran.detail',compact('arabics'));
+      return view('quran.tafseer_detail',compact('tafseers'));
         //    'ayats' => $ayats
         //]);
     }
 
-
-    // public function detail()
-    // {
-    //     return view('quran.detail');
-    // }
-    // public function homepage()
-    // {
-    //     $surahs = DB::table('datasurahs')
-    //     ->select('th_name')
-    //     ->get();
-
-    //     return view('quran.home',compact('surahs'));
-    //     //return view('quran.home');
-    // } 
-    public function tafseer_vdo()
-    {
-        return view('quran.tafseer_vdo');
-    }
-    public function tafseer_home()
-    {
-        return view('quran.tafseer_home');
-    }
-    public function tafseer_detail()
-    {
-        return view('quran.tafseer_detail');
-    }
-    public function navbar()
-    {
-        return view('quran.navbar');
-    }
     /**
      * Show the form for creating a new resource.
      *

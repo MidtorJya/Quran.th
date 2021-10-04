@@ -13,4 +13,8 @@ class Datasurah extends Model
         return $this->hasMany(Arabic::class);
     }
     
+    public function tafseer()
+    {
+        return $this->hasMany(Tafseer::class,'datasurah_id');
+    }
 }
