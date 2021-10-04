@@ -101,6 +101,6 @@ Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
 // Route::get('/qurans', [QuranController::class, 'index']);
 // Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
 
-Route::get ('admin/adminHome' ,[AdminController::class, 'adminindex'])->name('adminindex');
+Route::get ('admin/adminHome' ,[AdminController::class, 'adminhome'])->name('adminhome');
 
 Route::get ('admin/m.quran' ,[AdminController::class, 'adminmnquran'])->name('adminmnquran');

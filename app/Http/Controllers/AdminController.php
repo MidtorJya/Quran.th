@@ -8,7 +8,7 @@ use App\Models\Datasurah;
 
 class AdminController extends Controller
 {
-    public function adminindex(){
+    public function adminhome(){
         $datasurahs = Datasurah::paginate(20);
         //return dd($datasurahs);
         return view('admin.adminHome', [
