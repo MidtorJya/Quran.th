@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Datasurah;
 
 class HomeController extends Controller
 {
@@ -25,8 +26,30 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function adminHome()
-    {
+    public function adminhome(){
+        $datasurahs = Datasurah::paginate(20);
+        //return dd($datasurahs);
+        return view('admin.adminHome', [
+            'datasurahs' => $datasurahs
+        ]);
+    }
+    public function adminmnquran(){
+        //$datasurahs = Datasurah::paginate(20);
+        //return dd($datasurahs);
         return view('admin.adminHome');
+    }
+    public function approvalhome()
+    {
+        $datasurahs = Datasurah::paginate(20);
+        return view('admin.approvalHome', [
+            'datasurahs' => $datasurahs
+        ]);
+    }
+    public function staffhome()
+    {
+        $datasurahs = Datasurah::paginate(20);
+        return view('admin.staffHome', [
+            'datasurahs' => $datasurahs
+        ]);
     }
 }

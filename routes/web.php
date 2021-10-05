@@ -104,6 +104,11 @@ Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
 // Route::get('/qurans', [QuranController::class, 'index']);
 // Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
 
-Route::get ('admin/adminHome' ,[AdminController::class, 'adminhome'])->name('adminhome');
+//Route::get ('admin/adminHome' ,[AdminController::class, 'adminhome'])->name('adminhome');
 
-Route::get ('admin/m.quran' ,[AdminController::class, 'adminmnquran'])->name('adminmnquran');
+Route::get ('admin/adminHome',[HomeController::class,'adminhome'])->name('adminhome')->middleware('is_admin');
+Route::get ('admin/approvalHome',[HomeController::class,'approvalhome'])->name('approvalhome')->middleware('is_admin');
+Route::get ('admin/staffHome',[HomeController::class,'staffhome'])->name('staffhome')->middleware('is_admin');
+
+
+Route::get ('admin/m.quran' ,[HomeController::class, 'adminmnquran'])->name('adminmnquran');
