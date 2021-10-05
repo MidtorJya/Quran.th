@@ -33,7 +33,7 @@ class QuransController extends Controller
     }
 
     public function arabic($id)
-    {  // $datasurahs = Datasurah::all();
+    {  $datasurah = Datasurah::with('tafseer')->find($id);
         $arabics = Datasurah::with('arabic.thais')->find($id);
        // ->firstOrFail();
 
@@ -47,7 +47,7 @@ class QuransController extends Controller
         //dd($ayats->toArray());
         //'ayats' => $ayats]);
     
-      return view('quran.detail',compact('arabics'));
+      return view('quran.detail',compact('arabics','datasurah'));
     //   [
     //    //'datasurahs' => $datasurahs,
     //    'arabics' => $arabics

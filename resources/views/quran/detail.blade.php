@@ -7,7 +7,7 @@
     <div class="container">
       <br>
 
-    <a href="{{ route('tafseer_home') }}" class="link-dark" >ตัฟซีร ซูเราะห์ {{$arabics->th_name}} </a>
+    <a href="{{ route('tafseer_detail',$datasurah) }}" class="link-dark" >ตัฟซีร ซูเราะห์ {{$arabics->th_name}} </a>
     
     <br>
   <ul class="list-group list-group-horizontal">
