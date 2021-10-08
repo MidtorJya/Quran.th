@@ -84,6 +84,7 @@ Route::get('join/jointran', [JointranController::class, 'index']);
 //show q text x tran
 Route::get('/', [QuransController::class, 'homepage']);
 Route::get('/arabic{datasurah}', [QuransController::class, 'arabic'])->name('arabic');
+//Route::get('/tran{arabics}', [QuransController::class, 'tran'])->name('tran');
  //Route::get('/arabic/{datasurah}/tafseer_detail/{data}', function (Arabic $datasurah, Tafseer $data) {
 //   //
  //})->name('quran.detail');
