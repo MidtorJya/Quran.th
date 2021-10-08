@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\MquranController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JointableController;
@@ -37,7 +38,8 @@ return view('quran.home');
 
 
 Route::resource('posts',PostController::class);
-
+//Route::resource('posts','App\Http\Controllers\PostController');
+//Route::resource('mqurans',MquranController::class);
 
 //Route::resource('tafseer',TafseerController::class);
 
@@ -101,8 +103,8 @@ Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
 //Route::get ('admin/menu' ,[AdminController::class, 'adminindex'])->name('adminindex');
 
 //Test using model
-// Route::get('/qurans', [QuranController::class, 'index']);
-// Route::get('/arabic/{datasurah}', [QuranController::class, 'arabic'])->name('arabic');
+Route::get('/qurans/index{datasurah}', [QuranController::class, 'index']);
+//Route::get('/alls/{datasurah}', [QuranController::class, 'alls'])->name('alls');
 
 //Route::get ('admin/adminHome' ,[AdminController::class, 'adminhome'])->name('adminhome');
 

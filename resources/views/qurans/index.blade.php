@@ -19,9 +19,11 @@
                         <td scope="row">{{ $datasurah->id }}</td>
                         <td>{{ $datasurah->surah_name }}</td>
                         <td>
-                            <a class="btn btn-success" href="{{ route('arabic', $datasurah) }}">view</a>
+                            <a class="btn btn-success" href="{{ route('alls', $datasurah) }}">view</a>
                         </td>
                     </tr>
+
+                    
                     @endforeach
 
                 </tbody>

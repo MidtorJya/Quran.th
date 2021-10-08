@@ -17,7 +17,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                  
              
                    @foreach($arabics->arabic as $arabic )
                    <tr>

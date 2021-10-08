@@ -16,27 +16,29 @@ class QuranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         
-            $datasurahs = Datasurah::paginate(10);
-            //return dd($datasurahs);
+            $datasurahs = Datasurah::with('arabic.thais')->find($id);
+           // $arabics = Datasurah::with('arabic.thais')->find($id);
+            return dd($datasurahs);
             return view('qurans.index', [
                 'datasurahs' => $datasurahs
+               // 'arabics' => $arabics
             ]);
         
     }
 
-    public function arabic($id)
+    public function alls($id)
     {
         $arabics = Datasurah::with('arabic.thais')->find($id);
        // ->firstOrFail();
 
        // $plucked = $ayats->pluck('ayat.text', 'trans.text');
         
-        //dd($arabics->toArray());
+        dd($arabics->toArray());
       
-        return dd($arabics);
+       // return dd($arabics);
       
        //return view('test.detail', [
         //dd($ayats->toArray());
@@ -47,6 +49,25 @@ class QuranController extends Controller
         //]);
     }
 
+    public function all($id)
+    {
+        $arabics = Datasurah::with('arabic.thais')->find($id);
+       // ->firstOrFail();
+
+       // $plucked = $ayats->pluck('ayat.text', 'trans.text');
+        
+        //dd($arabics->toArray());
+      
+       // return dd($arabics);
+      
+       //return view('test.detail', [
+        //dd($ayats->toArray());
+        //'ayats' => $ayats]);
+       
+      return view('qurans.detail',compact('arabics'));
+        //    'ayats' => $ayats
+        //]);
+    }
 
 
 

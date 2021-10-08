@@ -10,7 +10,7 @@ class Datasurah extends Model
     use HasFactory;
     public function arabic()
     {
-        return $this->hasMany(Arabic::class);
+        return $this->hasMany(Arabic::class,'datasurah_id');
     }
     
     public function tafseer()
