@@ -13,9 +13,12 @@ use App\Http\Controllers\exController;
 use App\Http\Controllers\Jointrancontroller;
 use App\Http\Controllers\QuranController;
 
+
 use App\Http\Controllers\QuransController;
 use App\Http\Controllers\TafseersController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\LiveSearch;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -115,3 +118,16 @@ Route::get ('admin/staffHome',[HomeController::class,'staffhome'])->name('staffh
 
 
 Route::get ('admin/m.quran' ,[HomeController::class, 'adminmnquran'])->name('adminmnquran');
+
+//search
+Route::get('/people', [SearchController::class, 'index']);
+Route::get('/people/simple', [SearchController::class, 'index'])->name('simple_search');
+Route::get('/people/advance',[SearchController::class, 'advance'])->name('advance_search');
+
+//livesearch
+Route::get('/live_search', [LiveSearch::class, 'index']);
+Route::get('/live_search/action', [LiveSearch::class, 'action'])->name('live_search.action');
+
+//simple search
+Route::get('/search',[SearchController::class, 'search'])->name('web.search');
+Route::get('/find',[SearchController::class, 'find'])->name('web.find');
