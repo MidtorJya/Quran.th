@@ -16,7 +16,7 @@ class TafseerSeeder extends Seeder
         \DB::table('tafseers')->delete();
 
         \DB::table('tafseers')->insert([
-            ['index'=>'1','name'=>'#คุฏบะฮ์ ความลับสูเราะฮ์อัล-ฟาติหะฮ์ - ซุฟอัม อุษมาน\r\n','youtubeId'=>'H8yLaMW-v6k','datasurah_id'=>'1'],
+            ['index'=>'1','name'=>'#คุฏบะฮ์ ความลับสูเราะฮ์อัล-ฟาติหะฮ์ - ซุฟอัม อุษมาน','youtubeId'=>'H8yLaMW-v6k','datasurah_id'=>'1'],
             ['index'=>'2','name'=>'AH 1106 คุณค่าของ อัล-ฟาติฮะห์ โดย เชคริฎอ อะหมัด สมะดี','youtubeId'=>'dBWUgWote7k','datasurah_id'=>'1'],
             ['index'=>'3','name'=>'ตัฟซีรซูเราะห์อัลฟาติฮะห์ บรรยายธรรมอิสลาม อ.อิสมาแอล วิสุทธิปราณี','youtubeId'=>'YtzEk78gbQI','datasurah_id'=>'1'],
             ['index'=>'4','name'=>'AH 2448 ตัฟซีรอัลกุรอ่าน ซูเราะห์อัลบากอเราะห์ โดย อาจารย์มุบาร็อก มะหะหมัดซอและห์','youtubeId'=>'4sHU5JwxpEU','datasurah_id'=>'2'],
