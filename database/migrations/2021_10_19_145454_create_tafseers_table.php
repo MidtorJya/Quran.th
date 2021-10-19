@@ -16,7 +16,7 @@ class CreateTafseersTable extends Migration {
 		Schema::create('tafseers', function(Blueprint $table)
 		{
 			$table->integer('index')->primary();
-			$table->string('name', 100);
+			$table->string('name', 150);
 			$table->string('youtubeId', 11);
 			$table->integer('datasurah_id')->index('datasurah_id');
 		});

@@ -18,9 +18,9 @@ class CreateThaisTable extends Migration {
 			$table->integer('arabic_id', true);
 			$table->integer('datasurah_id')->default(0)->index('datasurah_id');
 			$table->integer('ayat')->default(0);
-			$table->text('text');
+			$table->string('text', 1900);
 			$table->string('audio');
-			$table->string('tafseer', 1000);
+			$table->string('tafseer', 1500);
 		});
 	}
 

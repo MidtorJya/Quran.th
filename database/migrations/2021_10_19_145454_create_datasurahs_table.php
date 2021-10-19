@@ -16,7 +16,7 @@ class CreateDatasurahsTable extends Migration {
 		Schema::create('datasurahs', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->string('th_name');
+			$table->string('th_name', 191);
 			$table->string('surah_name', 50);
 			$table->string('surah_arab', 50);
 			$table->integer('whole_ayah');
