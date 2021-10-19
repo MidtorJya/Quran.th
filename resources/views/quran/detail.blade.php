@@ -61,6 +61,7 @@
                 <source src="/mp3/{{$arabic->thais->audio}}" type="audio/mpeg">
             </audio>
             <br>
+            
                 <!-- Button trigger modal -->
             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" 
             data-bs-target="#staticBackdrop{{$arabic['arabic_id']}}">ตัฟซีร</button>
