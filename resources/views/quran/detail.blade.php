@@ -56,7 +56,7 @@
                 </div>
                 @foreach($arabics->arabic as $arabic )
             <p class="arabic">{{$arabic->text}}<span class="arabic_number"></span></p>
-            <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->text}}</p>
+            <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
             <audio controls >
                 <source src="/mp3/{{$arabic->thais->audio}}" type="audio/mpeg">
             </audio>

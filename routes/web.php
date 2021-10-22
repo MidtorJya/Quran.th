@@ -84,7 +84,7 @@ Route::get('/', function () {
 Route::get('quran/nav', [DetailController::class, 'index']);
 
 //่join q text w q tran
-Route::get('join/jointran', [JointranController::class, 'index']);
+//Route::get('join/jointran', [JointranController::class, 'index']);
 
 //show q text x tran
 Route::get('/', [QuransController::class, 'homepage']);
@@ -136,3 +136,6 @@ Route::get('/live_search/action', [LiveSearch::class, 'action'])->name('live_sea
 //simple search
 Route::get('/search',[SearchController::class, 'search'])->name('web.search');
 Route::get('/find',[SearchController::class, 'find'])->name('web.find');
+
+//jointable
+Route::get('join_table', [JointableController::class, 'index']);
