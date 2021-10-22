@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Datasurah extends Model
 {
     use HasFactory;
+    protected $table = 'datasurahs';
+
+    protected $fillable = [
+       'th_name'
+    ];
     //protected $fillable = ['th_name', 'surah_name', 'whole_ayah']; 
     public function arabic()
     {

@@ -36,16 +36,25 @@ class SearchController extends Controller
   
            $search_text = $request->input('query');
 
-           $countries =  DB::table('arabics')
-           ->join('thais','thais.arabic_id','=','arabics.arabic_id')
+           $countries =  DB::table('datasurahs')
+           ->join('arabics','arabics.datasurah_id', '=', 'datasurahs.id')
+           ->join('thais', 'thais.arabic_id', '=', 'arabics.arabic_id')
          
-           ->select('arabics.arabic_id', 'arabics.text','thais.text')
+           ->select('datasurahs.th_name','datasurahs.id','arabics.arabic_id', 'arabics.text','thais.Text')
                       ->where('arabics.text','LIKE','%'.$search_text.'%')
                      //->orWhere('id','<', 114)
-                      ->orWhere('thais.text','like','%'.$search_text.'%')
+                      ->orWhere('thais.Text','like','%'.$search_text.'%')
                       ->orWhere('arabics.arabic_id','like','%'.$search_text.'%')
+                      ->orWhere('datasurahs.th_name','like','%'.$search_text.'%')
                       ->paginate(10);
                      // return dd($countries);
+
+   //                   $data = Datasurah::join('arabics','arabics.datasurah_id', '=', 'datasurahs.id')
+   //  ->join('thais', 'thais.arabic_id', '=', 'arabics.arabic_id')
+   //  ->get([ 'datasurahs.th_name','arabics.arabic_text', 'thais.text']);
+
+
+                     
             return view('search',['countries'=>$countries]);
 
                 //   $countries =  Datasurah::whereHas('tran', function($query) use($search_text) {

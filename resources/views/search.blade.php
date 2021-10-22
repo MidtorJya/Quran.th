@@ -10,17 +10,17 @@
 <body>
     <div class="container">
        <div class="row">
-          <div class="col-md-6" style="margin-top:40px">
-             <h4>Search Everything</h4><hr>
+          <div class="col-md-12" style="margin-top:40px">
+             <h4>Search </h4><hr>
              <form action="{{ route('web.find') }}" method="GET">
         
                 <div class="form-group">
-                   <label for="">Enter keyword</label>
-                   <input type="text" class="form-control" name="query" placeholder="Search here....." value="{{ request()->input('query') }}">
+                   <label for="">ค้นหา</label>
+                   <input type="text" class="form-control" name="query" placeholder="ค้นหา....." value="{{ request()->input('query') }}">
                    <span class="text-danger">@error('query'){{ $message }} @enderror</span>
                 </div>
                 <div class="form-group">
-                 <button type="submit" class="btn btn-primary">Search</button>
+                 <button type="submit" class="btn btn-primary">ค้นหา</button>
                 </div>
              </form>
              <br>
@@ -32,8 +32,11 @@
                <table class="table table-hover">
                    <thead>
                        <tr>
+                          <th>ซูเราะห์ที่</th>
+                           <th>ซูเราะห์</th>
+                           <th>อัลกุรอาน</th>
+                           <th>คำแปล</th>
                            <th>อายะห์ที่</th>
-                           <th>ความหมาย</th>
                        
                        </tr>
                    </thead>
@@ -42,9 +45,12 @@
                        @if(count($countries) > 0)
                            @foreach($countries as $countrie)
                               <tr>
-                                  <td>{{ $countrie->arabic_id}}</td>
+                              <td>{{ $countrie->id}}</td>
+                                  <td>{{ $countrie->th_name }}</td>
+                              
                                   <td>{{ $countrie->text }}</td>
-                             
+                                  <td>{{ $countrie->Text }}</td>
+                                  <td>{{ $countrie->arabic_id}}</td>
                               </tr>
                            @endforeach
                        @else
