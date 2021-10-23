@@ -26,9 +26,9 @@
   <a href="{{ route('register') }}">สมัคร</a>
 
   <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit">Submit</button>
+     <form action="{{ route('web.find') }}" method="GET">
+      <input type="text" placeholder="ค้นหา.." name="query" value="{{ request()->input('query') }}">
+      <button type="submit">ค้นหา</button>
     </form>
   </div>
 </div>

@@ -1,3 +1,5 @@
+@extends('quran.nav')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
     <div class="container">
        <div class="row">
           <div class="col-md-12" style="margin-top:40px">
-             <h4>Search </h4><hr>
+             <h4> Quran Search </h4><hr>
              <form action="{{ route('web.find') }}" method="GET">
         
                 <div class="form-group">
@@ -23,11 +25,10 @@
                  <button type="submit" class="btn btn-primary">ค้นหา</button>
                 </div>
              </form>
-             <br>
-             <br>
+           
              <hr>
              <br>
-             @if(isset($countries))
+             @if(isset($texts))
 
                <table class="table table-hover">
                    <thead>
@@ -42,15 +43,15 @@
                    </thead>
                    <tbody>
                        
-                       @if(count($countries) > 0)
-                           @foreach($countries as $countrie)
+                       @if(count($texts) > 0)
+                           @foreach($texts as $text)
                               <tr>
-                              <td>{{ $countrie->id}}</td>
-                                  <td>{{ $countrie->th_name }}</td>
+                              <td>{{ $text->id}}</td>
+                                  <td>{{ $text->th_name }}</td>
                               
-                                  <td>{{ $countrie->text }}</td>
-                                  <td>{{ $countrie->Text }}</td>
-                                  <td>{{ $countrie->arabic_id}}</td>
+                                  <td>{{ $text->text }}</td>
+                                  <td>{{ $text->Text }}</td>
+                                  <td>{{ $text->arabic_id}}</td>
                               </tr>
                            @endforeach
                        @else
@@ -61,8 +62,8 @@
                </table>
 
                <div class="pagination-block">
-                   <?php //{{ $countries->links('layouts.paginationlinks') }} ?>
-                   {{  $countries->links()}} 
+                   <?php //{{ $texts->links('layouts.paginationlinks') }} ?>
+                   {{  $texts->appends(request()->input())->links('layouts.paginationlinks') }}
                </div>
 
              @endif
@@ -71,3 +72,4 @@
     </div>
 </body>
 </html>
+@endsection

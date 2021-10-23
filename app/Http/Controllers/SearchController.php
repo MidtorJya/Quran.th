@@ -36,7 +36,7 @@ class SearchController extends Controller
   
            $search_text = $request->input('query');
 
-           $countries =  DB::table('datasurahs')
+           $texts =  DB::table('datasurahs')
            ->join('arabics','arabics.datasurah_id', '=', 'datasurahs.id')
            ->join('thais', 'thais.arabic_id', '=', 'arabics.arabic_id')
          
@@ -55,7 +55,7 @@ class SearchController extends Controller
 
 
                      
-            return view('search',['countries'=>$countries]);
+            return view('search',['texts'=>$texts]);
 
                 //   $countries =  Datasurah::whereHas('tran', function($query) use($search_text) {
           
