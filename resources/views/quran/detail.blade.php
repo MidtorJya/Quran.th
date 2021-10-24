@@ -1,17 +1,10 @@
 @extends('quran.nav')
 @section('content')
 <!--<h3 class="text-center text-dark">{{$arabics->th_name}}</h3> -->
-<link rel="stylesheet" href=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
-    </script>
-    <script src=
-"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
-    </script>
+
 
  <div style = background-color:#00000; class="search-area">
-    <div class="container">
+    <div class="container col-md-8">
   
  <!--  vdo Tafseer link all
     <a href="{{ route('tafseer_detail',$datasurah) }}" class="link-dark" >วิดีโอตัฟซีร ซูเราะห์ {{$arabics->th_name}} </a>
@@ -121,11 +114,15 @@ $(document).ready(function(){
  
     
     -->
+
+
 <br>
 
-<div class="bs-example">
+  <ul class="list-group list-group-horizontal">
+    
+  <div class="bs-example">
             <a href="#Geeks2"
-               class="btn btn-lg btn-primary"
+               class="btn  btn-light"
                data-toggle="modal">วิดีโอตัฟซีร</a>
  
             <div id="Geeks2" class="modal fade">
@@ -146,6 +143,8 @@ $(document).ready(function(){
                                     frameborder="0" allowfullscreen>
                             </iframe>
                             <br>
+                            <br>
+                            
                             @endforeach
                         </div>
                     </div>
@@ -164,11 +163,6 @@ $(document).ready(function(){
             });
         });
     </script>
-
-<br>
-
-  <ul class="list-group list-group-horizontal">
-    
 <!-- dropdown : can not link
            <li class="list-group-item  list-group-item-secondary">	<select id="surahlist" class="surah-list">  @foreach($datas as $data) <option  value={{$data->id}}>
     <li><a href="{{ route('arabic', $data) }}">{{$data->th_name}}</a></li>
@@ -192,7 +186,7 @@ $(document).ready(function(){
     -->
 
     <!-- dropdown : can link-->
-    <div class="col-md-4">
+    <div class="col-md-2">
              
              <div class="form-s2">
                  <div>
@@ -206,8 +200,8 @@ $(document).ready(function(){
     </div>
     </div>
 
-    
-    <select name="menu1" id="{{$data->id}}">
+    <div class="col-md-2">
+    <select class="form-control" name="menu1" id="{{$data->id}}">
     @foreach($arabics->arabic as $arabic )  
    <option value="{{$arabic->thais->ayat}}">{{$arabic->thais->ayat}}</option> 
     @endforeach
