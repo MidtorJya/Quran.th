@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel Search with pagination</title>
     <link rel="stylesheet" href="{{ asset('bootstrap-3.1.1/css/bootstrap.min.css')}}">
+    
 </head>
 <body>
     <div class="container">
@@ -30,16 +31,15 @@
              <br>
              @if(isset($texts))
 
-               <table class="table table-hover">
+               <table class="table table">
                    <thead>
-                       <tr>
-                          <th>ซูเราะห์ที่</th>
-                           <th>ซูเราะห์</th>
-                           <th>อัลกุรอาน</th>
-                           <th>คำแปล</th>
-                           <th>อายะห์ที่</th>
-                       
-                       </tr>
+                   <tr class="table-success">
+        <th scope="col">ซูเราะห์ที่</th>
+        <th scope="col">ชื่อซูเราะห์</th>
+        <th scope="col">ภาษาอาหรับ</th>
+        <th scope="col">คำแปล</th>
+        <th scope="col">อายะห์ที่</th>
+     </tr> 
                    </thead>
                    <tbody>
                        

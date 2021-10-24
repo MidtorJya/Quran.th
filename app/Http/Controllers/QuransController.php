@@ -9,6 +9,8 @@ use App\Models\Datasurah;
 use App\Models\Thai;
 use App\Models\Tafseer;
 
+use DB;
+
 class QuransController extends Controller
 {
     /**
@@ -16,10 +18,17 @@ class QuransController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-    }
+    
+        public function index() {
+            $datat = DB::table('datasurahs')->get();
+            return view('quran.detail')->with('datat', $datat);
+        }
+    
+    
+        public function GetSubCatAgainstMainCatEdit($id){
+            echo json_encode(DB::table('arabics')->where('datasurah_id', $id)->get());
+        }
+    
 
     public function homepage()
     {

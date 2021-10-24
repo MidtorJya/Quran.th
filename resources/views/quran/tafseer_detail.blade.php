@@ -8,8 +8,8 @@
       <div class="col-md-8 offset-md-2">
       
 
-      <br><p>{{$tafseer->name}}
-      <p><br><br><iframe width="640" height="400" src="https://www.youtube.com/embed/{{$tafseers->youtubeId}}?modestbranding=1" 
+      <br><p>{{$tafseer->name}} 
+      <p><br><br><iframe width="640" height="400" src="https://www.youtube.com/embed/{{$tafseer->youtubeId}}?modestbranding=1" 
               rameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen></iframe><hr><br>
               </div>
