@@ -1,3 +1,29 @@
+
+@font-face {
+  font-family:'Uthmani' ;
+  src: url('assets/font/UthmanicHafs1Ver09.otf')format('truetype');
+}
+.arabic{
+   font-family: 'Uthmani', serif;
+   font-size: 20px;
+   font-weight: normal;
+   direction: rtl;
+   padding: 0 5px;
+   margin: 0;
+}
+.latin{
+  font-family:  serif;
+  font-size: 14px;
+  font-weight: normal;
+  direction: ltr;
+  padding: 0;
+  margin: 0;
+}
+.arabic_number {
+  font-size: 28px;
+  font-weight: normal;
+  
+}
 .foot {
   text-align: center;
   padding: 3px;
@@ -30,26 +56,6 @@
 }
 
 
- @font-face {
-   font-family:'Uthmani' ;
-   src: url('assets/font/UthmanicHafs1Ver09.otf')format(truetype);
- }
-.arabic{
-    font-family: 'Uthmani', serif;
-    font-size: 20px;
-    font-weight: normal;
-    direction: rtl;
-    padding: 0 5px;
-    margin: 0;
-}
-.latin{
-   font-family:  serif;
-   font-size: 17px;
-   font-weight: normal;
-   direction: ltr;
-   padding: 0;
-   margin: 0;
-}
 
 .latin2{
   font-family:  serif;

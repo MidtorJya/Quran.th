@@ -42,40 +42,44 @@
                         </div>
                     @endif
 </div>
-<div class ="container">
-  <table class="table table-hover table-bordered border-success table-striped">
-  
-    <thead >
-    <tr class="table-success">
-        <th scope="col">ลำดับที่</th>
-        <th scope="col">ชื่อซูเราะห์</th>
-        <th scope="col">ชื่อภาษาอาหรับ</th>
-        <th scope="col">ประทานที่</th>
-        <th scope="col">จำนวนอายะห์</th>
-     </tr> 
-  
-   <thead>
-  <tbody>
 
-  @foreach($datasurahs as $datasurah)  
-  <tr class="table-success ">
-      <td>{{ $datasurah->id}}</td>
-      <td>
-     
-        <a href ="{{ route('surah',$datasurah) }}" class="link-dark" >
-        {{ $datasurah->th_name}}</a></td>
-      <td>{{ $datasurah->surah_arab}})</td>
-      <td>{{ $datasurah->type}}</td>
-      <td>{{ $datasurah->whole_ayah}}</td>
-  </tr> 
-  @endforeach
-  </tbody> 
-  </table>
-  {{$datasurahs->links()}}
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>ภาษาอาหรับ</th>
+                        <th>Surah</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+             
+                @foreach($arabics->arabic as $arabic ) 
+                    <tr>
+                        <td scope="row">{{$arabic->thais->ayat}}</td>
+                        <td>{{$arabic->text}}</td>
+                        <td>{{$arabic->thais->Text}}</td>
+                        <td>
+                      
+            
+             <a href="{{ route('surah',$datasurah) }}" class="btn btn-secondary">แก้ไข</a>
+          
+       
+                        </td>
+                    </tr>
+                    @endforeach
 
+
+
+                </tbody>
+            </table>
+
+          
+
+        </div>
+    </div>
 </div>
-
 @endsection
-
-
-

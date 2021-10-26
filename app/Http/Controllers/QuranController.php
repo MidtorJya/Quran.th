@@ -36,7 +36,7 @@ class QuranController extends Controller
 
        // $plucked = $ayats->pluck('ayat.text', 'trans.text');
         
-        dd($arabics->toArray());
+       // dd($arabics->toArray());
       
        // return dd($arabics);
       

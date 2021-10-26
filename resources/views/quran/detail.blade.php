@@ -2,6 +2,35 @@
 @section('content')
 <!--<h3 class="text-center text-dark">{{$arabics->th_name}}</h3> -->
 
+
+<style>
+      @font-face {
+        font-family:'Uthmani' ;
+        src: url('assets/font/UthmanicHafs1Ver09.otf')format('truetype');
+      }
+     .arabic{
+         font-family: 'Uthmani', serif;
+         font-size: 23px;
+         font-weight: normal;
+         direction: rtl;
+         padding: 0 5px;
+         margin: 0;
+     }
+     .latin{
+        font-family:  serif;
+        font-size: 17px;
+        font-weight: normal;
+        direction: ltr;
+        padding: 0;
+        margin: 0;
+     }
+      .arabic_number {
+        font-size: 28px;
+        font-weight: normal;
+        
+     }
+
+      </style>
  <div style = background-color:#00000; class="search-area">
     <div class="container col-md-8">
   
@@ -189,7 +218,7 @@ $(document).ready(function(){
         <h4 class="modal-title" id="myModalLabel">{{$arabics->surah_arab}}</h4>
       </div>
       <div class="modal-body">
-      <p class="latin2">@foreach($arabics->arabic as $arabic ) 
+      <p class="arabic">@foreach($arabics->arabic as $arabic ) 
       {{$arabic->text}} [{{$arabic->thais->ayat}}]
       @endforeach</p>  
     
@@ -297,7 +326,7 @@ $(document).ready(function(){
                 <source src="/mp3/{{$arabic->thais->audio}}" type="audio/mpeg">
             </audio>
             <br>
-            <br>
+          
             
             <!-- Bookmark
             
@@ -382,7 +411,7 @@ $(document).ready(function(){
   </div>
 </div>
 
-<br>
+
 <hr>
 @endforeach
 </div> 

@@ -46,9 +46,10 @@
                        @if(count($texts) > 0)
                            @foreach($texts as $text)
                               <tr>
-                              <td>{{ $text->id}}</td>
-                                  <td>{{ $text->th_name }}</td>
+                              <td><a href="{{ route('arabic',$text->id) }}" class="link-dark" >{{$text->id}} </a></td>
                               
+                                  <td><a href="{{ route('arabic',$text->id) }}" class="link-dark" >{{$text->th_name}} </a></td>
+                            
                                   <td>{{ $text->text }}</td>
                                   <td>{{ $text->Text }}</td>
                                   <td>{{ $text->arabic_id}}</td>

@@ -17,9 +17,8 @@ use App\Http\Controllers\CauseController;
 
 use App\Http\Controllers\QuransController;
 use App\Http\Controllers\TafseersController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\LiveSearch;
+use App\Http\Controllers\AdminController;
 
 
 /*
@@ -84,6 +83,7 @@ Auth::routes();
 Route::get ('/home' ,[HomeController::class, 'index'])->name('home');
 Route::get ('admin/adminHome',[HomeController::class,'adminHome'])->name('admin.home')->middleware('is_admin');
 
+
 //Route::get('join_table', [JointableController::class, 'index']);
 //Route::get('quran/v_translation', [JoinTranslationController::class, 'index']);
 //Route::get('quran/detail', [DetailController::class, 'index']);
@@ -127,6 +127,7 @@ Route::get('quran/join_surah', [JoinTranslationController::class, 'index']);
 
 //Test using model
 Route::get('/qurans/index{datasurah}', [QuranController::class, 'index']);
+
 //Route::get('/alls/{datasurah}', [QuranController::class, 'alls'])->name('alls');
 
 //Route::get ('admin/adminHome' ,[AdminController::class, 'adminhome'])->name('adminhome');
@@ -159,9 +160,12 @@ Route::get('join_table', [JointableController::class, 'index']);
 Route::resource('posts','PostController');
 
 //dropdown
-Route::get('causes_cat', 'CauseController@index');
-Route::get('GetSubCatAgainstMainCatEdit/{id}', 'CauseController@GetSubCatAgainstMainCatEdit');
+// Route::get('causes_cat', 'CauseController@index');
+// Route::get('GetSubCatAgainstMainCatEdit/{id}', 'CauseController@GetSubCatAgainstMainCatEdit');
 
 //new dropdown X detail
 Route::get('quran/detail',[QuransController::class, 'index'])->name('causes_cat');
 Route::get('GetSubCatAgainstMainCatEdit/{id}', [QuransController::class, 'GetSubCatAgainstMainCatEdit'])->name('sub.dropdown');
+
+
+Route::get ('/surah{datasurah}',[AdminController::class,'surah'])->name('surah');

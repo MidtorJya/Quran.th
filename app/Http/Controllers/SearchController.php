@@ -39,7 +39,7 @@ class SearchController extends Controller
            $texts =  DB::table('datasurahs')
            ->join('arabics','arabics.datasurah_id', '=', 'datasurahs.id')
            ->join('thais', 'thais.arabic_id', '=', 'arabics.arabic_id')
-         
+        
            ->select('datasurahs.th_name','datasurahs.id','arabics.arabic_id', 'arabics.text','thais.Text',)
                       ->where('arabics.text','LIKE','%'.$search_text.'%')
                      //->orWhere('id','<', 114)
@@ -49,8 +49,10 @@ class SearchController extends Controller
                       ->orWhere('datasurahs.th_name','like','%'.$search_text.'%')
                      
                       ->paginate(10);
-                     // return dd($countries);
 
+         
+                     // return dd($countries);
+                 //    $arabics = Datasurah::with('arabic.thais')->find($id);
    //                   $data = Datasurah::join('arabics','arabics.datasurah_id', '=', 'datasurahs.id')
    //  ->join('thais', 'thais.arabic_id', '=', 'arabics.arabic_id')
    //  ->get([ 'datasurahs.th_name','arabics.arabic_text', 'thais.text']);
@@ -84,4 +86,6 @@ class SearchController extends Controller
 // return view('product',compact('products'));
 //     }
 }
+
+
 }
