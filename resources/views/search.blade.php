@@ -14,7 +14,7 @@
     <div class="container">
        <div class="row">
           <div class="col-md-12" style="margin-top:40px">
-             <h4> Quran Search </h4><hr>
+             <h4> ค้นหาในอัลกุรอาน...</h4><hr>
              <form action="{{ route('web.find') }}" method="GET">
         
                 <div class="form-group">

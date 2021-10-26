@@ -47,6 +47,22 @@ class QuransController extends Controller
         $datas = Datasurah::all();
         $datasurah = Datasurah::with('tafseer')->find($id);
         $arabics = Datasurah::with('arabic.thais')->find($id);
+         //function for ayat arabic
+         function format_arabic_number($number)
+         {
+             $ayat = 1;
+             $arabic_number = array('٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩');
+             $jum_karakter = strlen($number);
+            $temp = "";
+ 
+             for ($i =0; $i< $jum_karakter; $i++) {
+                 $char = substr($number, $i, 1);
+                 $temp .= $arabic_number[$char];
+ 
+             }
+             return '<span class="arabic_number">' .$temp. ' </span>';            
+         } 
+     
        // ->firstOrFail();
 
        // $plucked = $ayats->pluck('ayat.text', 'trans.text');

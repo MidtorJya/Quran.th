@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
     <link rel="stylesheet" href="{{ URL::to('css/navbar.css') }}">
 
+
   
     
    <!-- JavaScript Bundle with Popper -->

@@ -2,7 +2,6 @@
 @section('content')
 <!--<h3 class="text-center text-dark">{{$arabics->th_name}}</h3> -->
 
-
  <div style = background-color:#00000; class="search-area">
     <div class="container col-md-8">
   
@@ -118,8 +117,14 @@ $(document).ready(function(){
 
 <br>
 
+ 
+
   <ul class="list-group list-group-horizontal">
-    
+  <!--VDO Tafseer -->
+  
+
+
+
   <div class="bs-example">
             <a href="#Geeks2"
                class="btn  btn-light"
@@ -133,20 +138,24 @@ $(document).ready(function(){
                                     class="close"
                                     data-dismiss="modal"
                                     aria-hidden="true">×</button>
-                           
+                                    <h4 class="modal-title">ตัฟซีรซูเราะห์{{$arabics->th_name}}</h4>
                         </div>
                         <div class="modal-body">
                         @foreach($datasurah->tafseer as $tafseer )
                             <iframe id="Geeks3" width="450" height="350"
-                                    src=
- "https://www.youtube.com/embed/{{$tafseer->youtubeId}}"
-                                    frameborder="0" allowfullscreen>
+                           src="https://www.youtube.com/embed/{{$tafseer->youtubeId}}"
+                            frameborder="0" allowfullscreen>
                             </iframe>
                             <br>
                             <br>
                             
                             @endforeach
                         </div>
+
+                        <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">ปิด</button>
+       
+      </div>
                     </div>
                 </div>
           </div>
@@ -163,6 +172,40 @@ $(document).ready(function(){
             });
         });
     </script>
+
+
+<!-- read -->
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-light " data-toggle="modal" data-target="#myModal">
+  โหมดอ่านอัลกุรอาน
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{$arabics->surah_arab}}</h4>
+      </div>
+      <div class="modal-body">
+      <p class="latin2">@foreach($arabics->arabic as $arabic ) 
+      {{$arabic->text}} [{{$arabic->thais->ayat}}]
+      @endforeach</p>  
+    
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal">ปิด</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   
+
+
 <!-- dropdown : can not link
            <li class="list-group-item  list-group-item-secondary">	<select id="surahlist" class="surah-list">  @foreach($datas as $data) <option  value={{$data->id}}>
     <li><a href="{{ route('arabic', $data) }}">{{$data->th_name}}</a></li>
@@ -186,7 +229,7 @@ $(document).ready(function(){
     -->
 
     <!-- dropdown : can link-->
-    <div class="col-md-2">
+    <div class="col-md-3">
              
              <div class="form-s2">
                  <div>
@@ -200,16 +243,21 @@ $(document).ready(function(){
     </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
     <select class="form-control" name="menu1" id="{{$data->id}}">
+    <option value="#">อายะห์</option>
     @foreach($arabics->arabic as $arabic )  
    <option value="{{$arabic->thais->ayat}}">{{$arabic->thais->ayat}}</option> 
     @endforeach
    </select>
+
+
 <script>var urlmenu = document.getElementById( 'menu1' );
  urlmenu.onchange = function() {
       window.open( 'viewclass.php?classname=' + this.options[ this.selectedIndex ].value );
  };</script> 
+
+
 
 
     <!-- Example single danger button 
@@ -230,8 +278,8 @@ $(document).ready(function(){
   -->
           </ul>
 
-  
-         <p class="arabic text-center ">{{$arabics->th_name}}</p>
+  <br>
+         <h4 class="arabic text-center ">{{$arabics->th_name}}</h4>
          <br> 
          
          <div class="col-sm-3">
@@ -239,9 +287,11 @@ $(document).ready(function(){
                 </div>
                 </div>
                 @foreach($arabics->arabic as $arabic )
-            <p class="arabic">{{$arabic->text}}<span class="arabic_number"></span></p>
-           
+      
+            <p class="arabic">{{$arabic->text}}[{{$arabic->thais->ayat}}]<span class="arabic_number"></span></p>
+   
             <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
+            
             <br>
             <audio controls >
                 <source src="/mp3/{{$arabic->thais->audio}}" type="audio/mpeg">
@@ -249,17 +299,17 @@ $(document).ready(function(){
             <br>
             <br>
             
-            <!-- Bookmark -->
+            <!-- Bookmark
             
    <button type="button" class="btn btn-outline-secondary">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks" viewBox="0 0 16 16">
   <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1H4z"/>
   <path d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1z"/>
   </svg>
-
+ -->
 
    <!-- Note -->
-   <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal{{$arabic['arabic_id']}}" data-whatever="@mdo">โน๊ต</button>
+   <button type="button" class="open-button "  data-toggle="modal" data-target="#exampleModal{{$arabic['arabic_id']}}" data-whatever="@mdo">โน๊ต</button>
 
 
 <div class="modal fade" id="exampleModal{{$arabic['arabic_id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -292,11 +342,11 @@ $(document).ready(function(){
 
 
 
-                <!-- Button trigger modal -->
+                <!-- Button trigger modal TAFSEER _TEXT
             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" 
             data-bs-target="#staticBackdrop{{$arabic['arabic_id']}}">ตัฟซีร</button>
 
-<!-- Modal -->
+<!-- Modal 
 <div class="modal fade" id="staticBackdrop{{$arabic['arabic_id']}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog ">
     <div class="modal-content">
@@ -305,7 +355,7 @@ $(document).ready(function(){
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>{{$arabic->thais->tafseer}}</p>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" data-bs-dismiss="modal">ปิด</button>
@@ -315,8 +365,29 @@ $(document).ready(function(){
   </div>
 </div>
 
+-->
+
+
+
+
+  <!-- Button trigger modal TAFSEER _TEXT2-->
+
+ 
+<button class="open-button2 "  type="button" data-toggle="collapse" data-target="#collapseExample{{$arabic['arabic_id']}}" aria-expanded="false" aria-controls="collapseExample">
+ตัฟซีร
+</button>
+<div class="collapse" id="collapseExample{{$arabic['arabic_id']}}">
+  <div class="well">
+  <p>{{$arabic->thais->tafseer}}</p>
+  </div>
+</div>
+
 <br>
 <hr>
-@endforeach </div>
+@endforeach
+</div> 
+
+
+
 
 @endsection
