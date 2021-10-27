@@ -168,4 +168,6 @@ Route::get('quran/detail',[QuransController::class, 'index'])->name('causes_cat'
 Route::get('GetSubCatAgainstMainCatEdit/{id}', [QuransController::class, 'GetSubCatAgainstMainCatEdit'])->name('sub.dropdown');
 
 
-Route::get ('/surah{datasurah}',[AdminController::class,'surah'])->name('surah');
+Route::get ('/managequran{datasurah}',[AdminController::class,'managequran'])->name('managequran');
+Route::get ('admin/manageuser',[AdminController::class,'manageuser'])->name('manageuser');
+Route::get ('admin/managetafseer',[AdminController::class,'managetafseer'])->name('managetafseer');

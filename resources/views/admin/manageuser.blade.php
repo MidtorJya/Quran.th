@@ -43,39 +43,41 @@
                     @endif
 </div>
 <div class ="container">
-  <table class="table table-hover table-bordered border-success table-striped">
+  <table class="table table-hover table-bordered  table-striped">
   
     <thead >
-    <tr class="table-success">
+    <tr class="table">
         <th scope="col">ลำดับที่</th>
-        <th scope="col">ชื่อซูเราะห์</th>
-        <th scope="col">ชื่อภาษาอาหรับ</th>
-        <th scope="col">ประทานที่</th>
-        <th scope="col">จำนวนอายะห์</th>
+        <th scope="col">ชื่อ</th>
+        <th scope="col">อีเมลล์</th>
+        <th scope="col">สถานะ</th>
+        <th scope="col">action</th>
+      
      </tr> 
   
    <thead>
   <tbody>
 
-  @foreach($datasurahs as $datasurah)  
-  <tr class="table-success ">
-      <td>{{ $datasurah->id}}</td>
+  @foreach($user as $user)  
+  <tr class="table ">
+      <td>{{ $user->id}}</td>
+      <td> {{ $user->name}}</a></td>
+      <td>{{ $user->email}}</td>
+      <td>{{ $user->is_admin}}</td>
       <td>
-     
-        <a href ="{{ route('managequran',$datasurah) }}" class="link-dark" >
-        {{ $datasurah->th_name}}</a></td>
-      <td>{{ $datasurah->surah_arab}})</td>
-      <td>{{ $datasurah->type}}</td>
-      <td>{{ $datasurah->whole_ayah}}</td>
+                      
+            
+                      <a href="{{ route('manageuser') }}" class="btn btn-warning">แก้ไข</a>
+                      <a href="{{ route('manageuser') }}" class="btn btn-primary">ดู</a>
+                      <a href="{{ route('manageuser') }}" class="btn btn-danger">ลบ</a>
+                
+                                 </td>
   </tr> 
   @endforeach
   </tbody> 
   </table>
-  {{$datasurahs->links()}}
+
 
 </div>
 
 @endsection
-
-
-

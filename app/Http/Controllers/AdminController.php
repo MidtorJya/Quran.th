@@ -7,7 +7,7 @@ use App\Models\Arabic;
 use App\Models\Datasurah;
 use App\Models\Thai;
 use App\Models\Tafseer;
-
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -23,14 +23,32 @@ class AdminController extends Controller
         //
     }
 
-    public function surah($id){
+    public function managequran($id){
         
 
         $datas = Datasurah::all();
         $datasurah = Datasurah::with('tafseer')->find($id);
         $arabics = Datasurah::with('arabic.thais')->find($id);
          //function for ayat arabic
-      return view('admin.surah',compact('datas','arabics','datasurah'));
+      return view('admin.managequran',compact('datas','arabics','datasurah'));
+  
+    }
+    public function manageuser(){
+        
+
+        $user = User::all();
+     
+         //function for ayat arabic
+      return view('admin.manageuser',compact('user'));
+  
+    }
+    public function managetafseer(){
+        
+
+        $tafseer = Tafseer::all();
+     
+         //function for ayat arabic
+      return view('admin.managetafseer',compact('tafseer'));
   
     }
 

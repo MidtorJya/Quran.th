@@ -22,10 +22,10 @@
         <a class="nav-link" href="{{ route('adminhome') }}">จัดการกุรอาน</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="hometest.php">จัดารผู้ใช้</a>
+        <a class="nav-link" href="{{ route('manageuser') }}">จัดารผู้ใช้</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login-form.html">จัดการตัฟซัร</a>
+        <a class="nav-link" href="{{ route('managetafseer') }}">จัดการตัฟซัร</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="login-form.html">จัดการโน้ต</a>
@@ -42,44 +42,42 @@
                         </div>
                     @endif
 </div>
+<div class ="container">
+  <table class="table table-hover table-bordered  table-striped">
+  
+    <thead >
+    <tr class="table">
+        <th scope="col">ลำดับที่</th>
+        <th scope="col">ชื่อ</th>
+        <th scope="col">ไอดียูทูป</th>
+        <th scope="col">ซูเราะห์ที่</th>
+        <th scope="col">action</th>
+      
+     </tr> 
+  
+   <thead>
+  <tbody>
 
-<div class="container">
-    <div class="card">
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>ภาษาอาหรับ</th>
-                        <th>Surah</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-             
-                @foreach($arabics->arabic as $arabic ) 
-                    <tr>
-                        <td scope="row">{{$arabic->thais->ayat}}</td>
-                        <td>{{$arabic->text}}</td>
-                        <td>{{$arabic->thais->Text}}</td>
-                        <td>
+  @foreach($tafseer as $tafseer)  
+  <tr class="table ">
+      <td>{{ $tafseer->index}}</td>
+      <td> {{ $tafseer->name}}</a></td>
+      <td>{{ $tafseer->youtubeId}}</td>
+      <td>{{ $tafseer->datasurah_id}}</td>
+      <td>
                       
             
-             <a href="{{ route('surah',$datasurah) }}" class="btn btn-secondary">แก้ไข</a>
-          
-       
-                        </td>
-                    </tr>
-                    @endforeach
+                      <a href="{{ route('manageuser') }}" class="btn btn-warning">แก้ไข</a>
+                      <a href="{{ route('manageuser') }}" class="btn btn-primary">ดู</a>
+                      <a href="{{ route('manageuser') }}" class="btn btn-danger">ลบ</a>
+                
+                                 </td>
+  </tr> 
+  @endforeach
+  </tbody> 
+  </table>
 
 
-
-                </tbody>
-            </table>
-
-          
-
-        </div>
-    </div>
 </div>
+
 @endsection
