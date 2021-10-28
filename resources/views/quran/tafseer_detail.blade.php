@@ -1,6 +1,7 @@
 @extends('quran.navbar')
 @section('content')
 <br>
+
 <h3 class="text-center">{{$tafseers->th_name}}</h3>
 @foreach($tafseers->tafseer as $tafseer )
   <div class="container hero">

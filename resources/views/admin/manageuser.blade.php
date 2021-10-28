@@ -28,8 +28,9 @@
         <a class="nav-link" href="{{ route('managetafseer') }}">จัดการตัฟซีร</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login-form.html">จัดการโน้ต</a>
+        <a class="nav-link" href="{{ route('managenote') }}">จัดการโน้ต</a>
       </li>
+      
    
     </ul>
 </nav>
@@ -50,7 +51,7 @@
         <th scope="col">ลำดับที่</th>
         <th scope="col">ชื่อ</th>
         <th scope="col">อีเมลล์</th>
-        <th scope="col">สถานะ</th>
+     
         <th scope="col">action</th>
       
      </tr> 
@@ -63,7 +64,7 @@
       <td>{{ $user->id}}</td>
       <td> {{ $user->name}}</a></td>
       <td>{{ $user->email}}</td>
-      <td>{{ $user->is_admin}}</td>
+     
       <td>
                       
             

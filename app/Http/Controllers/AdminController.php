@@ -44,8 +44,13 @@ class AdminController extends Controller
     }
     public function managetafseer(){
         
-
-        $tafseer = Tafseer::all();
+        // $users = User::join('posts', 'users.id', '=', 'posts.user_id')
+        // ->get(['users.*', 'posts.descrption']);
+     
+      $tafseer = Tafseer::with('data')->get();
+    //
+    //return dd($tafseer->toArray());
+       // $datasurah = Datasurah::with('tafseer')->find($id);
      
          //function for ayat arabic
       return view('admin.managetafseer',compact('tafseer'));
@@ -57,6 +62,13 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function managenote(){
+        
+
+      return view('admin.managenote');
+  
+    }
     public function create()
     {
         //

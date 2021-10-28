@@ -34,11 +34,11 @@
                <table class="table table">
                    <thead>
                    <tr class="table-success">
-        <th scope="col">ซูเราะห์ที่</th>
-        <th scope="col">ชื่อซูเราะห์</th>
+      <th style="width:7%" scope="col">ซูเราะห์ที่</th>
+        <th style="width:10%" scope="col">ชื่อซูเราะห์</th>
         <th scope="col">ภาษาอาหรับ</th>
         <th scope="col">คำแปล</th>
-        <th scope="col">อายะห์ที่</th>
+        <th style="width:7%" scope="col">อายะห์ที่</th>
      </tr> 
                    </thead>
                    <tbody>

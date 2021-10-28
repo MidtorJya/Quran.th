@@ -28,7 +28,7 @@
         <a class="nav-link" href="{{ route('managetafseer') }}">จัดการตัฟซีร</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login-form.html">จัดการโน้ต</a>
+        <a class="nav-link" href="{{ route('managenote') }}">จัดการโน้ต</a>
       </li>
    
     </ul>
@@ -50,8 +50,9 @@
                     <tr>
                         <th>id</th>
                         <th>ภาษาอาหรับ</th>
-                        <th>Surah</th>
-                        <th>Action</th>
+                        <th>คำเเปล</th>
+                        <th>ตัฟซีร</th>
+                        <th width = 12%>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,12 +62,11 @@
                         <td scope="row">{{$arabic->thais->ayat}}</td>
                         <td>{{$arabic->text}}</td>
                         <td>{{$arabic->thais->Text}}</td>
+                        <td>{{$arabic->thais->tafseer}}</td>
                         <td>
+                       <a href="{{ route('managequran',$datasurah) }}" class="btn btn-info">ดู</a>
+                       <a href="{{ route('managequran',$datasurah) }}" class="btn btn-warning">แก้ไข</a>
                       
-            
-             <a href="{{ route('managequran',$datasurah) }}" class="btn btn-warning">แก้ไข</a>
-          
-       
                         </td>
                     </tr>
                     @endforeach

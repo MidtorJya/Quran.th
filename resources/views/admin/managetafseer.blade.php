@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<
 <div class="container">
     <div class="row justify-content-center">
     
@@ -28,7 +29,7 @@
         <a class="nav-link" href="{{ route('managetafseer') }}">จัดการตัฟซีร</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login-form.html">จัดการโน้ต</a>
+        <a class="nav-link" href="{{ route('managenote') }}">จัดการโน้ต</a>
       </li>
    
     </ul>
@@ -50,7 +51,7 @@
         <th scope="col">ลำดับที่</th>
         <th scope="col">ชื่อ</th>
         <th scope="col">ไอดียูทูป</th>
-        <th scope="col">ซูเราะห์ที่</th>
+        <th scope="col">ซูเราะห์</th>
         <th scope="col">action</th>
       
      </tr> 
@@ -58,13 +59,13 @@
    <thead>
   <tbody>
 
-  @foreach($tafseer as $tafseer)  
+  @foreach($tafseer as $tafseers )  
   <tr class="table ">
-      <td>{{ $tafseer->index}}</td>
-      <td> {{ $tafseer->name}}</a></td>
-      <td>{{ $tafseer->youtubeId}}</td>
-      <td>{{ $tafseer->datasurah_id}}</td>
-      <td>
+      <td>{{ $tafseers->index}}</td>
+      <td width=50%> {{ $tafseers->name}}</a></td>
+      <td>{{ $tafseers->youtubeId}}</td>
+      <td>{{ $tafseers->data->th_name}}</td>
+      <td >
                       
             
                       <a href="{{ route('manageuser') }}" class="btn btn-warning">แก้ไข</a>

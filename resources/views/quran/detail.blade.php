@@ -27,8 +27,19 @@
       .arabic_number {
         font-size: 28px;
         font-weight: normal;
+      }
+        .cautions {
         
-     }
+        font-size: 13px;
+        font-weight: normal;
+        direction: ltr;
+        padding: 0 5px;
+        margin: 0;
+        color: red;
+
+    }
+        
+     
 
       </style>
  <div style = background-color:#00000; class="search-area">
@@ -359,7 +370,7 @@ $(document).ready(function(){
             <textarea class="form-control" id="message-text"></textarea>
           </div>
         
-          <p class="text-danger">*กรุณาเข้าสู่ระบบก่อนสร้างโน้ต*</p>
+          <p class="cautions">*กรุณาเข้าสู่ระบบก่อนสร้างโน้ต*</p>
         </form>
       </div>
       <div class="modal-footer">

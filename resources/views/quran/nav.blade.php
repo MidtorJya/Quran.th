@@ -28,7 +28,7 @@
 <div class="topnav">
 <a class="active" href="{{ route('homepage') }}">Quran.th</a>
   <a href="{{ route('tafseer_home') }}">ตัฟซีร</a>
-  <a href="{{ route('login') }}">โน้ต</a>
+
   <a href="{{ route('login') }}">เข้าสู่ระบบ</a>
   <a href="{{ route('register') }}">สมัคร</a>
 

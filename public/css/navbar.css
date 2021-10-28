@@ -1,11 +1,11 @@
 
-@font-face {
+ @font-face {
   font-family:'Uthmani' ;
   src: url('assets/font/UthmanicHafs1Ver09.otf')format('truetype');
 }
 .arabic{
    font-family: 'Uthmani', serif;
-   font-size: 20px;
+   font-size: 23px;
    font-weight: normal;
    direction: rtl;
    padding: 0 5px;
@@ -13,7 +13,7 @@
 }
 .latin{
   font-family:  serif;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: normal;
   direction: ltr;
   padding: 0;
@@ -22,7 +22,16 @@
 .arabic_number {
   font-size: 28px;
   font-weight: normal;
+}
+  .cautions {
   
+  font-size: 13px;
+  font-weight: normal;
+  direction: ltr;
+  padding: 0 5px;
+  margin: 0;
+  color: red;
+
 }
 .foot {
   text-align: center;

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
  
 <div class="container">
     <div class="row justify-content-center">
@@ -70,7 +71,8 @@
                                     </a>
                                 @endif
                                 <hr>
-                                <p class="text-danger">*หากยังไม่มีเคยมีบัญชีผู้ใช้ กรุณาสมัครก่อน*</p>
+                                <p class="caution" "text-danger">*หากยังไม่มีเคยมีบัญชีผู้ใช้ กรุณาสมัครก่อน*</p>
+                               
                             </div>
                         </div>
                     </form>

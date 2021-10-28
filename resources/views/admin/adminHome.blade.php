@@ -28,7 +28,7 @@
         <a class="nav-link" href="{{ route('managetafseer') }}">จัดการตัฟซัร</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login-form.html">จัดการโน้ต</a>
+        <a class="nav-link" href="{{ route('managenote') }}">จัดการโน้ต</a>
       </li>
    
     </ul>

@@ -172,6 +172,7 @@ Route::resource('posts','PostController');
 Route::get ('/managequran{datasurah}',[AdminController::class,'managequran'])->name('managequran');
 Route::get ('admin/manageuser',[AdminController::class,'manageuser'])->name('manageuser');
 Route::get ('admin/managetafseer',[AdminController::class,'managetafseer'])->name('managetafseer');
+Route::get ('admin/managenote',[AdminController::class,'managenote'])->name('managenote');
 
 //
 Route::get('enduser/homeuser',[QuranController::class, 'homeuser'])->name('homeuser');
