@@ -22,14 +22,27 @@
 <body>
 
 <div class="topnav">
-<a class="active" href="{{ route('homepage') }}">Quran.th</a>
-  <a href="{{ route('tafseer_home') }}">ตัฟซีร</a>
-  <a href="{{ route('login') }}">โน้ต</a>
-  <a href="{{ route('login') }}">เข้าสู่ระบบ</a>
-  <a href="{{ route('register') }}">สมัคร</a>
+<a class="active" href="{{ route('homeuser') }}">Quran.th</a>
+  <a href="{{ route('tafseer_homeuser') }}">ตัฟซีร</a>
+  <a href="{{ route('posts.index')}}">โน้ต</a>
+ 
+  <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('ออกจากระบบ') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    
+
+                          
+                    
+
 
   <div class="search-container">
-     <form action="{{ route('web.find') }}" method="GET">
+     <form action="{{ route('web.findsearch') }}" method="GET">
       <input type="text" placeholder="ค้นหา.." name="query" value="{{ request()->input('query') }}">
       <button type="submit">ค้นหา</button>
     </form>

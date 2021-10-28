@@ -1,4 +1,4 @@
-@extends('quran.nav')
+@extends('enduser.shortnav')
 @section('content')
 <!--<h3 class="text-center text-dark">{{$arabics->th_name}}</h3> -->
 
@@ -266,7 +266,7 @@ $(document).ready(function(){
     <select class="form-control" name="forma" onchange="location = this.options[this.selectedIndex].value;" id="surah_list">
     <option value="#">ซูเราะห์</option>
     @foreach($datas as $data)
-    <option value="{{ route('arabic', $data) }}" title="{{$data->th_name}}">{{$data->th_name}} [{{$data->whole_ayah}}]</option>@endforeach </select>
+    <option value="{{ route('surah', $data) }}" title="{{$data->th_name}}">{{$data->th_name}} [{{$data->whole_ayah}}]</option>@endforeach </select>
       
     </div>
     </div>
@@ -358,8 +358,6 @@ $(document).ready(function(){
             <label for="message-text" class="control-label">คำอธิบาย :</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
-        
-          <p class="text-danger">*กรุณาเข้าสู่ระบบก่อนสร้างโน้ต*</p>
         </form>
       </div>
       <div class="modal-footer">

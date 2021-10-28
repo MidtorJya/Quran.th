@@ -22,10 +22,10 @@
         <a class="nav-link" href="{{ route('adminhome') }}">จัดการกุรอาน</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('manageuser') }}">จัดารผู้ใช้</a>
+        <a class="nav-link" href="{{ route('manageuser') }}">จัดการผู้ใช้</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('managetafseer') }}">จัดการตัฟซัร</a>
+        <a class="nav-link" href="{{ route('managetafseer') }}">จัดการตัฟซีร</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="login-form.html">จัดการโน้ต</a>
@@ -43,7 +43,7 @@
                     @endif
 </div>
 <div class ="container">
-  <table class="table table-hover table-bordered  table-striped">
+  <table class="table table-hover table-bordered  ">
   
     <thead >
     <tr class="table">

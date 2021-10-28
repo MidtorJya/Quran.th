@@ -41,6 +41,9 @@ class QuransController extends Controller
         
     }
 
+   
+
+
     public function arabic($id)
 
     { 
@@ -97,6 +100,7 @@ class QuransController extends Controller
             ]);
         
     }
+  
 
     public function tafseer_detail($id)
     {
@@ -111,6 +115,7 @@ class QuransController extends Controller
         //    'ayats' => $ayats
         //]);
     }
+  
     // public function detail()
     // {
     //     return view('quran.detail');

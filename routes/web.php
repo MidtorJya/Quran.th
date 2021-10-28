@@ -19,6 +19,7 @@ use App\Http\Controllers\QuransController;
 use App\Http\Controllers\TafseersController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SearchuserController;
 
 
 /*
@@ -164,10 +165,20 @@ Route::resource('posts','PostController');
 // Route::get('GetSubCatAgainstMainCatEdit/{id}', 'CauseController@GetSubCatAgainstMainCatEdit');
 
 //new dropdown X detail
-Route::get('quran/detail',[QuransController::class, 'index'])->name('causes_cat');
-Route::get('GetSubCatAgainstMainCatEdit/{id}', [QuransController::class, 'GetSubCatAgainstMainCatEdit'])->name('sub.dropdown');
+// Route::get('quran/detail',[QuransController::class, 'index'])->name('causes_cat');
+// Route::get('GetSubCatAgainstMainCatEdit/{id}', [QuransController::class, 'GetSubCatAgainstMainCatEdit'])->name('sub.dropdown');
 
 
 Route::get ('/managequran{datasurah}',[AdminController::class,'managequran'])->name('managequran');
 Route::get ('admin/manageuser',[AdminController::class,'manageuser'])->name('manageuser');
 Route::get ('admin/managetafseer',[AdminController::class,'managetafseer'])->name('managetafseer');
+
+//
+Route::get('enduser/homeuser',[QuranController::class, 'homeuser'])->name('homeuser');
+Route::get('/surah{datasurah}', [QuranController::class, 'surah'])->name('surah');
+Route::get('/enduser/tafseer_homeuser', [QuranController::class, 'tafseer_homeuser'])->name('tafseer_homeuser');
+Route::get('/enduser/tafseer_detailuser{data}', [QuranController::class, 'tafseer_detailuser'])->name('tafseer_detailuser');
+
+////simple search end user
+Route::get('/searchuser',[SearchuserController::class, 'searchuser'])->name('web.searchuser');
+Route::get('/findsearch',[SearchuserController::class, 'findsearch'])->name('web.findsearch');
