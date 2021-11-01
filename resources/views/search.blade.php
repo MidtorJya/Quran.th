@@ -43,7 +43,7 @@
                    </thead>
                    <tbody>
                        
-                       @if(count($texts) > 0)
+                      
                            @foreach($texts as $text)
                               <tr>
                               <td><a href="{{ route('arabic',$text->id) }}" class="link-dark" >{{$text->id}} </a></td>
@@ -55,10 +55,10 @@
                                   <td>{{ $text->arabic_id}}</td>
                               </tr>
                            @endforeach
-                       @else
+                
 
                           <tr><td>No result found!</td></tr>
-                       @endif
+               
                    </tbody>
                </table>
 

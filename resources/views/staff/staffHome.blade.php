@@ -17,18 +17,15 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('staffhome') }}">จัดการกุรอาน</a>
+      </li>
+     
       <li class="nav-item">
-        <a class="nav-link" href="QuranVideos.php">จัดการกุรอาน</a>
+        <a class="nav-link" href="{{ route('staffmanagetafseer') }}">จัดการตัฟซีร</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="hometest.php">จัดารผู้ใช้</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login-form.html">จัดการตัฟซัร</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login-form.html">จัดการโน้ต</a>
+        <a class="nav-link" href="{{ route('viewstatus') }}">ติดตามสถานะ</a>
       </li>
    
     </ul>
@@ -62,7 +59,7 @@
       <td>{{ $datasurah->id}}</td>
       <td>
      
-        <a href ="{{ route('adminmnquran') }}" class="link-dark" >
+        <a href ="{{ route('staffmanagequran',$datasurah) }}" class="link-dark" >
         {{ $datasurah->th_name}}</a></td>
       <td>{{ $datasurah->surah_arab}})</td>
       <td>{{ $datasurah->type}}</td>

@@ -8,7 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JointableController;
 use App\Http\Controllers\JoinTranslationController;
 use App\Http\Controllers\DetailController;
-use App\Http\Controllers\TestController;
+
 use App\Http\Controllers\exController;
 use App\Http\Controllers\Jointrancontroller;
 use App\Http\Controllers\QuranController;
@@ -20,6 +20,8 @@ use App\Http\Controllers\TafseersController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchuserController;
+use App\Http\Controllers\ApprovalController;
+use App\Http\Controllers\StaffController;
 
 
 /*
@@ -135,8 +137,7 @@ Route::get('/qurans/index{datasurah}', [QuranController::class, 'index']);
 
 //Route role users
 Route::get ('admin/adminHome',[HomeController::class,'adminhome'])->name('adminhome')->middleware('is_admin');
-Route::get ('admin/approvalHome',[HomeController::class,'approvalhome'])->name('approvalhome')->middleware('is_admin');
-Route::get ('admin/staffHome',[HomeController::class,'staffhome'])->name('staffhome')->middleware('is_admin');
+
 
 
 Route::get ('admin/m.quran' ,[HomeController::class, 'adminmnquran'])->name('adminmnquran');
@@ -183,3 +184,15 @@ Route::get('/enduser/tafseer_detailuser{data}', [QuranController::class, 'tafsee
 ////simple search end user
 Route::get('/searchuser',[SearchuserController::class, 'searchuser'])->name('web.searchuser');
 Route::get('/findsearch',[SearchuserController::class, 'findsearch'])->name('web.findsearch');
+
+//staff
+Route::get ('staff/staffHome',[StaffController::class,'staffhome'])->name('staffhome')->middleware('is_admin');
+Route::get ('/staffmanagequran{datasurah}',[StaffController::class,'staffmanagequran'])->name('staffmanagequran');
+Route::get ('staff/staffmanagetafseer',[StaffController::class,'staffmanagetafseer'])->name('staffmanagetafseer');
+Route::get ('staff/viewstatus',[StaffController::class,'viewstatus'])->name('viewstatus');
+
+//approval
+Route::get ('approval/approvalHome',[ApprovalController::class,'approvalhome'])->name('approvalhome')->middleware('is_admin');
+Route::get ('/approvalmanagequran{datasurah}',[ApprovalController::class,'approvalmanagequran'])->name('approvalmanagequran');
+Route::get ('approval/approvalmanagetafseer',[ApprovalController::class,'approvalmanagetafseer'])->name('approvalmanagetafseer');
+Route::get ('approval/approvalstatus',[ApprovalController::class,'approvalstatus'])->name('approvalstatus');
