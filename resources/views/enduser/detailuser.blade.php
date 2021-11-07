@@ -317,7 +317,7 @@ $(document).ready(function(){
                 </div>
                 @foreach($arabics->arabic as $arabic )
       
-            <p class="arabic">{{$arabic->text}}[{{$arabic->thais->ayat}}]<span class="arabic_number"></span></p>
+            <p class="arabic">{{$arabic->text}}<span class="arabic_number"></span></p>
    
             <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
             

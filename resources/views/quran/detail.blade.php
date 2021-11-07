@@ -182,12 +182,14 @@ $(document).ready(function(){
                         </div>
                         <div class="modal-body">
                         @foreach($datasurah->tafseer as $tafseer )
+                        <p>{{$tafseer->name}}</p>
                             <iframe id="Geeks3" width="450" height="350"
                            src="https://www.youtube.com/embed/{{$tafseer->youtubeId}}"
                             frameborder="0" allowfullscreen>
                             </iframe>
                             <br>
                             <br>
+                          
                             
                             @endforeach
                         </div>
@@ -230,7 +232,8 @@ $(document).ready(function(){
       </div>
       <div class="modal-body">
       <p class="arabic">@foreach($arabics->arabic as $arabic ) 
-      {{$arabic->text}} [{{$arabic->thais->ayat}}]
+      {{$arabic->text}}
+      [{{$arabic->thais->ayat}}]
       @endforeach</p>  
     
       </div>
@@ -328,7 +331,7 @@ $(document).ready(function(){
                 </div>
                 @foreach($arabics->arabic as $arabic )
       
-            <p class="arabic">{{$arabic->text}}[{{$arabic->thais->ayat}}]<span class="arabic_number"></span></p>
+            <p class="arabic">{{$arabic->text}}<span class="arabic_number"></span></p>
    
             <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
             

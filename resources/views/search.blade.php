@@ -34,30 +34,32 @@
                <table class="table table table-bordered ">
                    <thead>
                    <tr class="table-success">
-        <th style="width:7%" scope="col">ซูเราะห์ที่</th>
-        <th style="width:10%" scope="col">ชื่อซูเราะห์</th>
-        <th scope="col">ภาษาอาหรับ</th>
-        <th scope="col">คำแปล</th>
-        <th style="width:7%" scope="col">อายะห์ที่</th>
+       
+        <th style="width:10%" scope="col">ผลการค้นหา</th>
+      
+        
      </tr> 
                    </thead>
                    <tbody>
                        
-                      
+                   @if(count($texts) > 0)
                            @foreach($texts as $text)
                               <tr>
-                              <td><a href="{{ route('arabic',$text->id) }}" class="link-dark" >{{$text->id}} </a></td>
-                              
-                                  <td><a href="{{ route('arabic',$text->id) }}" class="link-dark" >{{$text->th_name}} </a></td>
                             
-                                  <td>{{ $text->text }}</td>
-                                  <td>{{ $text->Text }}</td>
-                                  <td>{{ $text->arabic_id}}</td>
+                              
+                                  <td><a href="{{ route('arabic',$text->id) }}" class="link-dark" >{{$text->th_name}}[{{$text->id}}:{{ $text->ayat}}] </a><br> {{ $text->text }}
+                                  <br> {{ $text->Text }}<br><p class="card-text" style="text-align: center;font-weight: bold">{{ $text->Text }}</td>
+                            
+                                
+                                 
                               </tr>
                            @endforeach
-                
+                           @else
 
                           <tr><td>No result found!</td></tr>
+                          @endif
+
+                         
                
                    </tbody>
                </table>
