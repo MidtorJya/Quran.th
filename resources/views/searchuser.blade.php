@@ -14,6 +14,8 @@
     <div class="container">
        <div class="row">
           <div class="col-md-12" style="margin-top:40px">
+          <br>
+          <br>
              <h4> ค้นหาในอัลกุรอาน...</h4><hr>
              <form action="{{ route('web.find') }}" method="GET">
         

@@ -25,7 +25,7 @@
 
 <body>
 
-<div class="topnav">
+<div class="topnav fixed-top ">
 <a class="active" href="{{ route('homeuser') }}">Quran.th</a>
   <a href="{{ route('tafseer_homeuser') }}">ตัฟซีร</a>
   <a href="{{ route('posts.index')}}">โน้ต</a>

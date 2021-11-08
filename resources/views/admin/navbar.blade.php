@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 <div class="container">
     <div class="row justify-content-center">
     
@@ -42,45 +39,3 @@
                         </div>
                     @endif
 </div>
-
-<div class="container">
-  
-        <table class="table  table-bordered  ">
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>ภาษาอาหรับ</th>
-                        <th>คำเเปล</th>
-                        <th>เสียง</th>
-                     
-                        <th width = 12%>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-             
-                @foreach($arabics->arabic as $arabic ) 
-                    <tr>
-                        <td scope="row">{{$arabic->thais->ayat}}</td>
-                        <td>{{$arabic->text}}</td>
-                        <td>{{$arabic->thais->Text}}</td>
-                        <td>{{$arabic->thais->audio}}</td>
-                        
-                        <td>
-                       <a href="{{ route('editquran',$datasurah) }}" class="btn btn-info">ดู</a>
-                       <a href="{{ route('editquran',$datasurah) }}" class="btn btn-warning">แก้ไข</a>
-                      
-                      
-                        </td>
-                    </tr>
-                    @endforeach
-
-
-
-                </tbody>
-            </table>
-
-          
-
-      
-</div>
-@endsection

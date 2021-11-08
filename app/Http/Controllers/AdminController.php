@@ -9,6 +9,8 @@ use App\Models\Thai;
 use App\Models\Tafseer;
 use App\Models\User;
 
+use Illuminate\Support\Facades\DB;
+
 class AdminController extends Controller
 {
     /**
@@ -30,6 +32,7 @@ class AdminController extends Controller
         $datasurah = Datasurah::with('tafseer')->find($id);
         $arabics = Datasurah::with('arabic.thais')->find($id);
          //function for ayat arabic
+        //return dd($arabics->toArray());
       return view('admin.managequran',compact('datas','arabics','datasurah'));
   
     }
@@ -69,6 +72,25 @@ class AdminController extends Controller
       return view('admin.managenote');
   
     }
+     public function editquran($arabic_id){
+         $arabics = Datasurah::with('arabic.thais')->find($arabic_id);
+        //return dd($arabics->toArray());
+
+       return view('admin.editquran',compact('arabics'));
+    //    //return view('admin.edit-quran');
+    
+    //   }
+
+    // $arabics = DB::table('datasurahs')
+    // ->join('arabics','arabics.datasurah_id', '=', 'datasurahs.id')
+    // ->join('thais', 'thais.arabic_id', '=', 'arabics.arabic_id')
+ 
+    // ->select('datasurahs.th_name','datasurahs.id','arabics.arabic_id', 'arabics.text','thais.Text','arabics.ayat')
+    // //->where('thais.arabic_id', '=', 'arabics.arabic_id')
+    // ->get();
+   // return dd($arabics->toArray());
+    //return view('admin.editquran',compact('arabics'));
+     }
     public function create()
     {
         //

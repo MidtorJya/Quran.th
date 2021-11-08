@@ -25,7 +25,7 @@
 
 <body>
 
-<div class="topnav">
+<div class="topnav fixed-top ">
 <a class="active" href="{{ route('homepage') }}">Quran.th</a>
   <a href="{{ route('tafseer_home') }}">ตัฟซีร</a>
 
@@ -40,6 +40,8 @@
       <button type="submit">ค้นหา</button>
     </form>
     
+    
+
   </div>
   </div>
 </div>

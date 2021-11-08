@@ -82,8 +82,10 @@
                 </div>
             </div>
         </nav>
-        
-        {{-- @yield('nav') --}}
+        <!-- Sidebar -->
+		<!-- {{-- @yield('menu') --}} -->
+		<!-- /Sidebar -->
+       
             
             @yield('content')
    

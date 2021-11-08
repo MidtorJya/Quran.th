@@ -11,8 +11,8 @@ class Thai extends Model
     protected $fillable = [
         'arabic_id', 'text',
     ];
-    public function thais()
+    public function trans()
     {
-        return $this->belongsTo(Arabic::class);
+        return $this->belongsTo('App/Models/Arabic');
     }
 }

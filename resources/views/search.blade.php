@@ -14,6 +14,8 @@
     <div class="container">
        <div class="row">
           <div class="col-md-12" style="margin-top:40px">
+          <br>
+          <br>
              <h4> ค้นหาในอัลกุรอาน...</h4><hr>
              <form action="{{ route('web.find') }}" method="GET">
         
@@ -63,6 +65,25 @@
                
                    </tbody>
                </table>
+               <!-- <script>
+
+var path = "{{ url('web.find') }}";
+
+$('#card-text').typeahead({
+
+    source: function(query, process){
+
+        return $.get(path, {query:query}, function(request){
+
+            return process(request);
+
+        });
+
+    }
+
+});
+
+</script> -->
 
                <div class="pagination-block">
                    <?php //{{ $texts->links('layouts.paginationlinks') }} ?>

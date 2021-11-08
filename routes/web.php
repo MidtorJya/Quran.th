@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\MquranController;
+use App\Http\Controllers\TypeaheadAutocompleteController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JointableController;
@@ -22,6 +22,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchuserController;
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\MquranController;
 
 
 /*
@@ -174,6 +175,7 @@ Route::get ('/managequran{datasurah}',[AdminController::class,'managequran'])->n
 Route::get ('admin/manageuser',[AdminController::class,'manageuser'])->name('manageuser');
 Route::get ('admin/managetafseer',[AdminController::class,'managetafseer'])->name('managetafseer');
 Route::get ('admin/managenote',[AdminController::class,'managenote'])->name('managenote');
+Route::get ('/editquran{datasurah}',[AdminController::class,'editquran'])->name('editquran');
 
 //
 Route::get('enduser/homeuser',[QuranController::class, 'homeuser'])->name('homeuser');
@@ -196,3 +198,8 @@ Route::get ('approval/approvalHome',[ApprovalController::class,'approvalhome'])-
 Route::get ('/approvalmanagequran{datasurah}',[ApprovalController::class,'approvalmanagequran'])->name('approvalmanagequran');
 Route::get ('approval/approvalmanagetafseer',[ApprovalController::class,'approvalmanagetafseer'])->name('approvalmanagetafseer');
 Route::get ('approval/approvalstatus',[ApprovalController::class,'approvalstatus'])->name('approvalstatus');
+
+//hl search
+Route::get('user/typeahead_autocomplete', [TypeaheadAutocompleteController::class, 'index']);
+
+Route::get('/typeahead_autocomplete/action', [TypeaheadAutocompleteController::class, 'action'])->name('typeahead_autocomplete.action');

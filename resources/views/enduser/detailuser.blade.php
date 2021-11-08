@@ -29,8 +29,29 @@
         font-weight: normal;
         
      }
+     @font-face {
+    font-family: quran-font;
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/font/AmiriQuranColored.woff') format('truetype');
+  }
+  
+  .quran-font {
+    font-family: quran-font;
+    font-size: 26px;
+    color: #FFFFFF;
+  }
+  .quran-font-intro  p{
+     font-family: quran-font;
+     direction: rtl;
+     font-size: 26px;
+     line-height: 200%;
+     color: #FFFFFF;
+   }
 
       </style>
+      <br>
+      <br>
  <div style = background-color:#00000; class="search-area">
     <div class="container col-md-8">
   
@@ -171,6 +192,7 @@ $(document).ready(function(){
                         </div>
                         <div class="modal-body">
                         @foreach($datasurah->tafseer as $tafseer )
+                        <p>{{$tafseer->name}}</p>
                             <iframe id="Geeks3" width="450" height="350"
                            src="https://www.youtube.com/embed/{{$tafseer->youtubeId}}"
                             frameborder="0" allowfullscreen>
@@ -218,7 +240,7 @@ $(document).ready(function(){
         <h4 class="modal-title" id="myModalLabel">{{$arabics->surah_arab}}</h4>
       </div>
       <div class="modal-body">
-      <p class="arabic">@foreach($arabics->arabic as $arabic ) 
+      <p class="quran-font">@foreach($arabics->arabic as $arabic ) 
       {{$arabic->text}} [{{$arabic->thais->ayat}}]
       @endforeach</p>  
     
@@ -317,7 +339,12 @@ $(document).ready(function(){
                 </div>
                 @foreach($arabics->arabic as $arabic )
       
-            <p class="arabic">{{$arabic->text}}<span class="arabic_number"></span></p>
+           
+            <div class="quran-font-intro ">
+            <p>
+            {{$arabic->text}}
+            </p>
+           </div>
    
             <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
             

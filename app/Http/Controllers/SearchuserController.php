@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Arabic;
 use App\Models\Datasurah;
 use App\Models\Thai;
-use App\Models\Tafseer;
+
 
 class SearchuserController extends Controller
 {
