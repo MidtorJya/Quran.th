@@ -1,4 +1,4 @@
-@extends('quran.navbar')
+@extends('quran.nav')
 @section('content')
 
    
@@ -41,6 +41,7 @@
      
 
       </style>
+
 <div style = background-color:#9be2cd; class=" row text-center ">
 
       @foreach($datasurahs as $datasurah)     

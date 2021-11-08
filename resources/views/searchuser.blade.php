@@ -1,4 +1,4 @@
-@extends('enduser.shortnav')
+@extends('enduser.navuser')
 @section('content')
 <!DOCTYPE html>
 <html lang="en">

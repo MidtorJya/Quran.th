@@ -1,4 +1,4 @@
-@extends('enduser.shortnav')
+@extends('enduser.navuser')
 @section('content')
 <!--<h3 class="text-center text-dark">{{$arabics->th_name}}</h3> -->
 

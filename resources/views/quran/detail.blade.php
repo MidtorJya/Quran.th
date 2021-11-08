@@ -1,4 +1,4 @@
-@extends('quran.nav')
+@extends('quran.navbar')
 @section('content')
 <!--<h3 class="text-center text-dark">{{$arabics->th_name}}</h3> -->
 
