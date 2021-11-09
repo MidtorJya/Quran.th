@@ -106,10 +106,10 @@
         <a class="nav-link" href="{{ route('adminhome') }}">จัดการกุรอาน</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('user.index') }}">จัดการผู้ใช้</a>
+        <a class="nav-link" href="{{ route('manageuser') }}">จัดการผู้ใช้</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('tafseers.index') }}">จัดการวิดีโอตัฟซีร</a>
+        <a class="nav-link" href="{{ route('managetafseer') }}">จัดการตัฟซีร</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('managenote') }}">จัดการโน้ต</a>

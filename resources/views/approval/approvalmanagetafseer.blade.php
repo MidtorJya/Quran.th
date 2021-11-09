@@ -60,7 +60,7 @@
 
   @foreach($tafseer as $tafseers )  
   <tr class="table ">
-      <td>{{ $tafseers->index}}</td>
+      <td>{{ $tafseers->id}}</td>
       <td width=50%> {{ $tafseers->name}}</a></td>
       <td>{{ $tafseers->youtubeId}}</td>
       <td>{{ $tafseers->data->th_name}}</td>

@@ -22,7 +22,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchuserController;
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\StaffController;
-use App\Http\Controllers\MquranController;
+//use App\Http\Controllers\MquranController;
+use App\Http\Controllers\ManageUserController;
+use App\Http\Controllers\ManageQuranController;
 
 
 /*
@@ -39,6 +41,8 @@ use App\Http\Controllers\MquranController;
 Route::get('/', function () {
 return view('quran.home');
 });
+
+
 
 //Route::get('/', function () {
   //return view('welcome');
@@ -86,6 +90,7 @@ Auth::routes();
 
 Route::get ('/home' ,[HomeController::class, 'index'])->name('home');
 Route::get ('admin/adminHome',[HomeController::class,'adminHome'])->name('admin.home')->middleware('is_admin');
+
 
 
 //Route::get('join_table', [JointableController::class, 'index']);
@@ -172,7 +177,7 @@ Route::resource('posts','PostController');
 
 
 Route::get ('/managequran{datasurah}',[AdminController::class,'managequran'])->name('managequran');
-Route::get ('admin/manageuser',[AdminController::class,'manageuser'])->name('manageuser');
+//Route::get ('admin/manageuser',[AdminController::class,'manageuser'])->name('manageuser');
 Route::get ('admin/managetafseer',[AdminController::class,'managetafseer'])->name('managetafseer');
 Route::get ('admin/managenote',[AdminController::class,'managenote'])->name('managenote');
 Route::get ('/editquran{datasurah}',[AdminController::class,'editquran'])->name('editquran');
@@ -203,3 +208,22 @@ Route::get ('approval/approvalstatus',[ApprovalController::class,'approvalstatus
 Route::get('user/typeahead_autocomplete', [TypeaheadAutocompleteController::class, 'index']);
 
 Route::get('/typeahead_autocomplete/action', [TypeaheadAutocompleteController::class, 'action'])->name('typeahead_autocomplete.action');
+
+//tafseers
+Route::resource('tafseers','TafseersController');
+
+//adminmanageuser
+
+Route::resource('user','ManageUserController');
+
+// Route::get('/', function () { return redirect (app()->getLocale()); });
+
+// Route::group([ 'prefix'=>'{locale?}', 'where'=>['locale'=>'[a-zA-Z]{2}'], 'middleware'=>['setlocale'] ],function(){
+
+// Route::resource('/manageuser', 'ManageUserController');
+
+// }
+
+//adminmanageQuran
+Route::resource('thai','ManageQuranController');
+

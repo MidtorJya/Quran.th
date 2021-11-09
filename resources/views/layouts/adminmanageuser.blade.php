@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tafseer CRUD</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet"/>
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
+</head>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -125,24 +141,25 @@
                             {{ session('status') }}
                         </div>
                     @endif
-</div>
+
         <!-- Sidebar -->
 		<!-- {{-- @yield('menu') --}} -->
 		<!-- /Sidebar -->
+    <div class="container w-80 mt-1">
        
-            
-            @yield('content')
-   
-        
-		<!-- /Header -->
-		<!-- Sidebar -->
-	
-		<!-- /Sidebar -->
-		<!-- Page Wrapper -->
-		
-		<!-- /Page Wrapper -->
-	</div>
-
- 
+<!--             
+                {{-- <li class="breadcrumb-item active" aria-current="page">Data</li> --}}
+            </ol>
+        </nav> -->
+        <!-- <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('tafseers.index') }}"></a></li>
+                <li class="breadcrumb-item"><a href="{{ route('tafseers.create') }}"></a></li>
+                {{-- <li class="breadcrumb-item active" aria-current="page">Data</li> --}}
+            </ol>
+        </nav> -->
+        @yield('content')
+    </div>
+    <div>
 </body>
 </html>

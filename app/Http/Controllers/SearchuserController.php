@@ -79,11 +79,11 @@ class SearchuserController extends Controller
 // // or this option  
 // //$name = $request->input('q');
 
-// $products = DB::table('products')           
-//     ->select('products.*')              
-//     ->where('products.name' , 'like', '%'.$name.'%') //Error in this line   
+// $tafseers = DB::table('tafseers')           
+//     ->select('tafseers.*')              
+//     ->where('tafseers.name' , 'like', '%'.$name.'%') //Error in this line   
 
-// return view('product',compact('products'));
+// return view('tafseer',compact('tafseers'));
 //     }
 }
 

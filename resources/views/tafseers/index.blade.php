@@ -1,12 +1,12 @@
-@extends('layouts.adminmanageuser')
+@extends('layouts.adminmanage')
 
 @section('content')
 <div class="text-center">
-                          <h1 class="h4 text-gray-900 mb-4">จัดการผู้ใช้งาน</h1>
+                          <h1 class="h4 text-gray-900 mb-4">จัดการวิดีโอตัฟซีร</h1>
 
                         </div>
 <!-- <a class="btn btn-link float-end" href="{{ route('tafseers.create') }}">เพิ่มตัฟซีร</a> -->
-<a href ="{{ route('user.create')}}" class ="btn btn-dark my-3"> เพิ่มผู้ใช้งาน </a>
+<a href ="{{ route('tafseers.create')}}" class ="btn btn-dark my-3"> เพิ่มวิดีตัฟซีร </a>
 
 {{-- Display message --}}
 @if (session('success'))
@@ -20,22 +20,18 @@
         <tr></tr>
         <tr>
             <th scope="col">ที่</th>
-            <th scope="col">ชื่อ</th>
-            <th scope="col">ดีกรี</th>
-            <th scope="col">อีเมลล์</th>
-            <th scope="col">รหัสผ่าน</th>
+            <th scope="col">ชื่อซูเราะห์</th>
+            <th scope="col">YoutubeID</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
 
-        @foreach ($users as $user) {{-- Loop users --}}
+        @foreach ($tafseers as $tafseer) {{-- Loop tafseers --}}
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $user->name }}</td>
-            <td>{{ $user->is_admin }}</td>
-            <td>{{ $user->email }}</td>
-            <td>{{ $user->password }}</td>
+            <td>{{ $tafseer->name }}</td>
+            <td>{{ $tafseer->youtubeId }}</td>
             <td>
 
                 <div class="dropdown"> {{-- Dropdown --}}
@@ -44,13 +40,13 @@
                         Action
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="actionDropdown">
-                        <li><a class="dropdown-item" href="{{ route('user.show', $user->id) }}">ดู</a></li> {{-- View --}}
-                        <li><a class="dropdown-item" href="{{ route('user.edit', $user->id) }}">แก้ไข</a></li> {{-- Edit --}}
+                        <li><a class="dropdown-item" href="{{ route('tafseers.show', $tafseer->id) }}">ดู</a></li> {{-- View --}}
+                        <li><a class="dropdown-item" href="{{ route('tafseers.edit', $tafseer->id) }}">แก้ไข</a></li> {{-- Edit --}}
                         <li>
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <form action="{{ route('user.destroy', $user->id) }}" method="post"> {{-- Delete --}}
+                            <form action="{{ route('tafseers.destroy', $tafseer->id) }}" method="post"> {{-- Delete --}}
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="dropdown-item">Delete</button>
@@ -64,6 +60,6 @@
 
     </tbody>
 </table>
-{{$users->links()}}
+{{$tafseers->links()}}
 
 @endsection
