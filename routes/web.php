@@ -26,7 +26,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\ManageQuranController;
 
-
+use App\Http\Controllers\NoteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -221,3 +221,6 @@ Route::resource('thai','ManageQuranController');
 
 //designeditquran
 
+
+//note
+Route::resource('notes','NoteController');

@@ -28,7 +28,7 @@
 <div class="topnav fixed-top ">
 <a class="active" href="{{ route('homeuser') }}">Quran.th</a>
   <a href="{{ route('tafseer_homeuser') }}">ตัฟซีร</a>
-  <a href="{{ route('posts.index')}}">โน้ต</a>
+  <a href="{{ route('notes.index')}}">โน้ต</a>
   <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
