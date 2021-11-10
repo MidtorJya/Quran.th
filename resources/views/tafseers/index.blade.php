@@ -1,4 +1,4 @@
-@extends('layouts.adminmanage')
+@extends('layouts.adminmanageuser')
 
 @section('content')
 <div class="text-center">

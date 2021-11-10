@@ -48,7 +48,7 @@
 							<div class="card card-table flex-fill">
 							
 								<div class="card-body">
-									<div class="table-responsive">
+									<div class="table-responsive table-bordered">
 										<table class="table custom-table mb-0">
 											<thead>
 												<tr>
@@ -66,7 +66,7 @@
 													<td>ด้วยพระนามของอัลลอฮฺ ผู้ทรงกรุณาปราณี </td>
 													<td>
 														<div class="dropdown action-label">
-															<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+															<a class="btn btn-danger btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
 																<i class="fa fa-dot-circle-o text-success"></i> สถานะ
 															</a>
 															<div class="dropdown-menu dropdown-menu-right">
@@ -84,7 +84,7 @@
 													<td>การสรรเสริญทั้งหลายนั้น </td>
 													<td>
 														<div class="dropdown action-label">
-															<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+															<a class="btn btn-danger btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
 																<i class="fa fa-dot-circle-o text-danger"></i> สถานะ
 															</a>
 															<div class="dropdown-menu dropdown-menu-right">
@@ -102,7 +102,7 @@
 													<td>ผู้ทรงกรุณาปราณี</td>
 													<td>
 														<div class="dropdown action-label">
-															<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+															<a class="btn btn-danger btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
 																<i class="fa fa-dot-circle-o text-danger"></i> สถานะ
 															</a>
 															<div class="dropdown-menu dropdown-menu-right">
@@ -120,7 +120,7 @@
 													<td>ผู้ทรงอภิสิทธิ์</td>
 													<td>
 														<div class="dropdown action-label">
-															<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+															<a class="btn btn-danger btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
 																<i class="fa fa-dot-circle-o text-success"></i>สถานะ
 															</a>
 															<div class="dropdown-menu dropdown-menu-right">
@@ -138,7 +138,7 @@
 													<td>ขอพระองค์ทรงแนะนำ</td>
 													<td>
 														<div class="dropdown action-label">
-															<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+															<a class="btn btn-danger btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
 																<i class="fa fa-dot-circle-o text-danger"></i> สถานะ
 															</a>
 															<div class="dropdown-menu dropdown-menu-right">

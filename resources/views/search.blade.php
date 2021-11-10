@@ -50,7 +50,7 @@
                             
                               
                                   <td><a href="{{ route('arabic',$text->id) }}" class="link-dark" >{{$text->th_name}}[{{$text->id}}:{{ $text->ayat}}] </a><br> {{ $text->text }}
-                                  <br> {{ $text->Text }}<br><p class="card-text" style="text-align: center;font-weight: bold">{{ $text->Text }}</td>
+                                  <br> {{ $text->Text }}</td>
                             
                                 
                                  

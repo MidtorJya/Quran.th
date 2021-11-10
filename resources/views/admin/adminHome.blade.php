@@ -1,40 +1,62 @@
-@extends('layouts.admin')
+@extends('layouts.adminmanageuser')
 
 @section('content')
+<div class="text-center">
+                          <h1 class="h4 text-gray-900 mb-4">จัดการอัลกุรอาน</h1>
 
-<div class ="container">
-  <table class="table table-hover table-bordered border-success table-striped">
-  
-    <thead >
-    <tr class="table-success">
-        <th scope="col">ลำดับที่</th>
-        <th scope="col">ชื่อซูเราะห์</th>
-        <th scope="col">ชื่อภาษาอาหรับ</th>
-        <th scope="col">ประทานที่</th>
-        <th scope="col">จำนวนอายะห์</th>
-     </tr> 
-  
-   <thead>
-  <tbody>
+                        </div>
+<!-- <a class="btn btn-link float-end" href="{{ route('tafseers.create') }}">เพิ่มตัฟซีร</a> -->
+<!-- <a href ="{{ route('thai.create')}}" class ="btn btn-dark my-3"> เพิ่มผู้ใช้งาน </a> -->
 
-  @foreach($datasurahs as $datasurah)  
-  <tr class="table-success ">
-      <td>{{ $datasurah->id}}</td>
-      <td>
-     
-        <a href ="{{ route('managequran',$datasurah) }}" class="link-dark" >
-        {{ $datasurah->th_name}}</a></td>
-      <td>{{ $datasurah->surah_arab}})</td>
-      <td>{{ $datasurah->type}}</td>
-      <td>{{ $datasurah->whole_ayah}}</td>
-  </tr> 
-  @endforeach
-  </tbody> 
-  </table>
-  {{$datasurahs->links()}}
+{{-- Display message --}}
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 
-</div>
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr></tr>
+        <tr>
+            <!-- <th scope="col">ที่</th> -->
+            <th style="width:8%" scope="col">อายะห์ที่</th>
+            <th scope="col">คำแปล</th> 
+            <th scope="col">เสียง</th>
+            <th style="width:8%" scope="col">ซูเราะห์ที่</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
 
+        @foreach ($thais as $thai) {{-- Loop thais --}}
+        <tr>
+            <!-- <th scope="row">{{ $loop->iteration }}</th> -->
+            <td>{{ $thai->ayat }}</td>
+            <td>{{ $thai->Text }}</td>
+            <td>{{ $thai->audio }}</td>
+            <td>{{ $thai->datasurah_id }}</td>
+            <td>
+
+                <div class="dropdown"> {{-- Dropdown --}}
+                    <button class="btn btn-danger btn-sm dropdown-toggle" type="button" id="actionDropdown"
+                        data-mdb-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="actionDropdown">
+                        <li><a class="dropdown-item" href="{{ route('thai.show', $thai->arabic_id) }}">ดู</a></li> {{-- View --}}
+                        <li><a class="dropdown-item" href="{{ route('thai.edit', $thai->arabic_id) }}">แก้ไข</a></li> {{-- Edit --}}
+                      
+                    </ul>
+                </div>
+            </td>
+        </tr>
+        @endforeach
+
+    </tbody>
+</table>
+
+{{$thais->links()}}
 @endsection
 
 

@@ -67,9 +67,9 @@
       <td >
                       
             
-                      <a href="{{ route('manageuser') }}" class="btn btn-warning">แก้ไข</a>
-                      <a href="{{ route('manageuser') }}" class="btn btn-primary">ดู</a>
-                      <a href="{{ route('manageuser') }}" class="btn btn-danger">ลบ</a>
+                      <a href="{{ route('editquran') }}" class="btn btn-warning">แก้ไข</a>
+                      <a href="{{ route('editquran') }}" class="btn btn-primary">ดู</a>
+                      <a href="{{ route('editquran') }}" class="btn btn-danger">ลบ</a>
                 
                                  </td>
   </tr> 

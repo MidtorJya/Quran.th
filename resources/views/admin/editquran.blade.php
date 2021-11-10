@@ -1,5 +1,5 @@
 
-@extends('layouts.admin')
+@extends('layouts.staffmanage')
 
 @section('content')
 
@@ -53,7 +53,7 @@
                               <input class="form-control" id="staff_surname" name="staff_surname"  type="text"  value="001001.mp3"  autocomplete="off">
                             </div>
                           </div>
-
+<!-- 
                           <div class="form-group row">
                             <div class="col-sm-2">
                               <span class="h7 text-gray-900 mb-4 form-text">ระดับ :</span>
@@ -74,7 +74,7 @@
                                 <option value="">โปรดเลือกระดับก่อน</option>
                               </select>
                             </div>
-                          </div>
+                          </div> -->
 
                           <div class="form-group row">
                             <div class="col-sm-2">
@@ -95,8 +95,8 @@
                           </div>
                          
                           <div class ="col-md-12">
-                          <a class="btn btn-secondary" href="{{ route('adminhome') }}">บันทึก</a>
-                          <a class="btn btn-secondary" href="{{ route('adminhome') }}">ยกเลิก</a>
+                          <a class="btn btn-secondary" href="{{ route('staffhome') }}">บันทึก</a>
+                          <a class="btn btn-secondary" href="{{ route('staffhome') }}">ยกเลิก</a>
                          </div>
                           
                           

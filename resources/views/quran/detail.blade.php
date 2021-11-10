@@ -253,10 +253,15 @@ $(document).ready(function(){
         <h4 class="modal-title" id="myModalLabel">{{$arabics->surah_arab}}</h4>
       </div>
       <div class="modal-body">
-      <p class="quran-font">@foreach($arabics->arabic as $arabic ) 
-      {{$arabic->text}}
-      [{{$arabic->thais->ayat}}]
-      @endforeach</p>  
+       
+
+      <div class="quran-font-intro ">
+        <p>
+        @foreach($arabics->arabic as $arabic ) 
+      {{$arabic->text}} 
+       [{{$arabic->thais->ayat}}]
+      @endforeach</p>
+      </div>
     
       </div>
       <div class="modal-footer">
@@ -344,7 +349,7 @@ $(document).ready(function(){
           </ul>
 
   <br>
-         <h4 class="arabic text-center ">{{$arabics->th_name}}</h4>
+         <h4 class="arabic text-center ">[{{$arabics->surah_arab}}]{{$arabics->th_name}}</h4>
          <br> 
          
          <div class="col-sm-3">

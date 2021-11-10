@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Datasurah;
+use App\Models\Thai;
 
 class HomeController extends Controller
 {
@@ -27,11 +28,15 @@ class HomeController extends Controller
         return view('home');
     }
     public function adminhome(){
-        $datasurahs = Datasurah::paginate(20);
+       // $datasurahs = Datasurah::all();
+      
         //return dd($datasurahs);
-        return view('admin.adminHome', [
-            'datasurahs' => $datasurahs
-        ]);
+        // return view('admin.adminHome', [
+        //     'datasurahs' => $datasurahs
+        // ]);
+
+        $thais = Thai::paginate(10);
+        return view('admin.adminHome', compact('thais'));
     }
     public function adminmnquran(){
         //$datasurahs = Datasurah::paginate(20);

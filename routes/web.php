@@ -180,7 +180,7 @@ Route::get ('/managequran{datasurah}',[AdminController::class,'managequran'])->n
 //Route::get ('admin/manageuser',[AdminController::class,'manageuser'])->name('manageuser');
 Route::get ('admin/managetafseer',[AdminController::class,'managetafseer'])->name('managetafseer');
 Route::get ('admin/managenote',[AdminController::class,'managenote'])->name('managenote');
-Route::get ('/editquran{datasurah}',[AdminController::class,'editquran'])->name('editquran');
+Route::get ('admin/editquran',[AdminController::class,'editquran'])->name('editquran');
 
 //
 Route::get('enduser/homeuser',[QuranController::class, 'homeuser'])->name('homeuser');
@@ -216,14 +216,8 @@ Route::resource('tafseers','TafseersController');
 
 Route::resource('user','ManageUserController');
 
-// Route::get('/', function () { return redirect (app()->getLocale()); });
-
-// Route::group([ 'prefix'=>'{locale?}', 'where'=>['locale'=>'[a-zA-Z]{2}'], 'middleware'=>['setlocale'] ],function(){
-
-// Route::resource('/manageuser', 'ManageUserController');
-
-// }
-
 //adminmanageQuran
 Route::resource('thai','ManageQuranController');
+
+//designeditquran
 
