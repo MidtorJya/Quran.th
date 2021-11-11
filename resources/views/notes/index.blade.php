@@ -21,8 +21,9 @@
     <center>
       <h2>โน้ตของคุณ</h2>
 </center>
-          <!-- <a href ="{{ route('notes.create')}}" class ="btn btn-dark my-3"> สร้างโน้ตใหม่ </a> -->
+<!-- <a href="javascript:history.back()" class="btn btn-warning">กลับไปหน้าซูเราะห์</a> -->
           <a href ="{{ route('homeuser')}}" class ="btn btn-dark my-3"> Quran.th </a>
+          <!-- <a href="javascript:history.back()" class="btn btn-primary">กลับ</a> -->
     </div>      
 </div> 
 <!-- 
@@ -36,10 +37,10 @@
 <table class="table table-bordered">
 
  <tr>
-    <th>ที่</th>
-    <th>หัวข้อ</th>
-    <th>คำอธิบาย</th>
-    <th width="280px">Action</th>
+    <th class="font-weight-bold" >ที่</th>
+    <th class="font-weight-bold">หัวข้อ</th>
+    <th class="font-weight-bold">คำอธิบาย</th>
+    <th  class="font-weight-bold" >Action</th>
  </tr>
 
  @foreach ($data as $key => $value)
@@ -69,13 +70,13 @@
                         
                         <li>
                             <hr class="dropdown-divider">
-                        </li>
+                       
                         <li>
                             <form action="{{ route('notes.destroy', $value->id) }}" method="post"> {{-- Delete --}}
                                 @csrf
                                 @method('delete')
                               
-                                <button type="submit" class="dropdown-item">Delete</button>
+                                <button type="submit" class="dropdown-item">ลบ</button>
                             </form>
                         </li>
                     </ul>

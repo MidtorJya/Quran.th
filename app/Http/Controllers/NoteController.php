@@ -103,7 +103,7 @@ class NoteController extends Controller
     {
         //
         // return view('notes.create');
-        return view('enduser.detailuser');
+        return view('enduser.detailuse');
     }
 
     /**

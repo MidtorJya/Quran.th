@@ -55,7 +55,7 @@ class LoginController extends Controller
         }else if (auth()->user()->is_admin ==3 ){
             return redirect()->route('staffhome');
         }else {
-            return redirect()->route('home');
+            return redirect()->route('homeuser');
         }
     }else {
             return redirect()->route('login')->with('error','อีเมลล์หรือรหัสผ่านไม่ถูกต้อง');

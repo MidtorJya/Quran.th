@@ -1,6 +1,6 @@
 @extends('enduser.navuser')
 @section('content')
-<!--<h3 class="text-center text-dark">{{$arabics->th_name}}</h3> -->
+
 
 
 <style>
@@ -27,9 +27,39 @@
       .arabic_number {
         font-size: 28px;
         font-weight: normal;
+      }
+        .cautions {
         
-     }
-     @font-face {
+        font-size: 13px;
+        font-weight: normal;
+        direction: ltr;
+        padding: 0 5px;
+        margin: 0;
+        color: red;
+        }
+        .t {
+  background-color: white;
+  color: grey;
+  font-family:  serif;
+        font-size: 15px;
+        font-weight: normal;
+        direction: rtl;
+        padding: 0;
+        margin: 0;
+}
+.select {
+  background-color: black;
+  color: white;
+  font-family:  serif;
+        font-size: 15px;
+        font-weight: normal;
+        direction: rtl;
+        padding: 0;
+        margin: 0;
+}
+
+    
+    @font-face {
     font-family: quran-font;
     font-style: normal;
     font-weight: 400;
@@ -48,10 +78,17 @@
      line-height: 200%;
      color: #FFFFFF;
    }
+.navigation {
+    position: absolute;
+    right: 12px;
+    top: 24px;
+}
+        
+     
 
       </style>
-      <br>
-      <br>
+       <br>
+    <br>
  <div style = background-color:#00000; class="search-area">
     <div class="container col-md-8">
   
@@ -169,13 +206,11 @@ $(document).ready(function(){
 
  
 
-  <ul class="list-group list-group-horizontal">
-  <!--VDO Tafseer -->
-  
+  <ul class="list-group bg-white list-group-horizontal  ">
 
 
 
-  <!-- read -->
+<!-- read -->
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-dark " data-toggle="modal" data-target="#myModal">
   โหมดอ่านอัลกุรอาน
@@ -303,8 +338,65 @@ $(document).ready(function(){
     </script>
 
 
+<!-- dropdown : can not link
+           <li class="list-group-item bg-dark list-group-item-secondary">	<select id="surahlist" class="surah-list bg-dark">  @foreach($datas as $data) <option  value={{$data->id}}>
+    <li><a href="{{ route('arabic', $data) }}">{{$data->th_name}}</a></li>
+    @endforeach</option></select> </li>
+
+    <select id="list" onchange="getSelectValue();">
+    @foreach($datas as $data)
+            <option value="{{ route('arabic', $data) }}">{{$data->th_name}}</option>
+            @endforeach
+        </select>
+    <script>
+        
+        function getSelectValue()
+        {
+            var selectedValue = document.getElementById("list").value;
+            console.log(selectedValue);
+        }
+        getSelectValue();
+
+    </script> -->
+   
+
+    <!-- dropdown : can link-->
+    <div class="col-md-3 ">
+             
+             <div class="form-s2 ">
+                 <div>
+   
+    <select class="form-control "  name="forma" onchange="location = this.options[this.selectedIndex].value;" id="surah_list">
+    <option value="#"  style="color:white bg-black" >ซูเราะห์</option>
+    @foreach($datas as $data)
+    <option value="{{ route('arabic', $data) }}" title="{{$data->th_name}}">
+{{$data->th_name}} [{{$data->whole_ayah}}]</option>@endforeach </select>
+      
+    </div>
+    </div>
+    </div>
+
+    <div class ="col-md-3 ">
+    <select class="form-control  " name="menu1" id="{{$data->id}}">
+    <option value="#" class="select">อายะห์</option>
+    @foreach($arabics->arabic as $arabic )  
+   <option value="{{$arabic->thais->ayat}}">{{$arabic->thais->ayat}}</option> 
+    @endforeach
+   </select>
+
+   
 
 
+<script>var urlmenu = document.getElementById( 'menu1' );
+ urlmenu.onchange = function() {
+      window.open( 'viewclass.php?classname=' + this.options[ this.selectedIndex ].value );
+ };</script> 
+
+
+
+
+    
+ 
 
     <!-- Example single danger button 
 <div class="btn-group">
@@ -323,9 +415,9 @@ $(document).ready(function(){
            <option  value="1" rel="3" >1-3</option><option  value="4" rel="5" >4-5</option><option  value="6" rel="6" >6-6</option><option  value="7" rel="8" >7-8</option><option  value="9" rel="10" >9-10</option><option  value="11" rel="13" >11-13</option><option  value="14" rel="17" >14-17</option><option  value="18" rel="19" >18-19</option><option  value="20" rel="20" >20-20</option><option  value="21" rel="22" >21-22</option><option  value="23" rel="24" >23-24</option><option  value="25" rel="25" >25-25</option><option  value="26" rel="27" >26-27</option><option  value="28" rel="29" >28-29</option><option  value="30" rel="31" >30-31</option><option  value="32" rel="34" >32-34</option><option  value="35" rel="35" >35-35</option><option  value="36" rel="36" >36-36</option><option  value="37" rel="37" >37-37</option><option  value="38" rel="38" >38-38</option><option  value="39" rel="40" >39-40</option><option  value="41" rel="44" >41-44</option><option  value="45" rel="48" >45-48</option><option  value="49" rel="49" >49-49</option><option  value="50" rel="50" >50-50</option><option  value="51" rel="51" >51-51</option><option  value="52" rel="52" >52-52</option><option  value="53" rel="54" >53-54</option><option  value="55" rel="55" >55-55</option><option  value="56" rel="56" >56-56</option><option  value="57" rel="58" >57-58</option><option  value="59" rel="62" >59-62</option><option  value="63" rel="68" >63-68</option><option  value="69" rel="69" >69-69</option><option  value="70" rel="71" >70-71</option><option  selected  value="72" rel="73" >72-73</option></select>   </li>
   -->
           </ul>
-
+          <br>
   <br>
-         <h4 class="arabic text-center ">{{$arabics->th_name}}</h4>
+         <h4 class="arabic text-center ">[{{$arabics->surah_arab}}]{{$arabics->th_name}}</h4>
          <br> 
          
          <div class="col-sm-3">
@@ -333,14 +425,12 @@ $(document).ready(function(){
                 </div>
                 </div>
                 @foreach($arabics->arabic as $arabic )
-      
-           
-            <div class="quran-font-intro ">
-            <p>
-            {{$arabic->text}}
-            </p>
-           </div>
-   
+      <div class="quran-font-intro ">
+        <p>
+        {{$arabic->text}}
+        </p>
+      </div>
+      <p class="t">{{$arabic->transliteration}}</p>
             <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
             
             <br>
@@ -360,7 +450,7 @@ $(document).ready(function(){
  -->
 
    <!-- Note -->
-   <!-- <button type="button" class="open-button "  data-toggle="modal" data-target="#exampleModal{{$arabic['arabic_id']}}" data-whatever="@mdo">โน๊ต</button>
+    <!-- <button type="button" class="open-button "  data-toggle="modal" data-target="#exampleModal{{$arabic['arabic_id']}}" data-whatever="@mdo">โน๊ต</button>
 
 
 <div class="modal fade" id="exampleModal{{$arabic['arabic_id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -380,6 +470,8 @@ $(document).ready(function(){
             <label for="message-text" class="control-label">คำอธิบาย :</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div>
+        
+          <p class="cautions">*กรุณาเข้าสู่ระบบก่อนสร้างโน้ต*</p>
         </form>
       </div>
       <div class="modal-footer">
@@ -388,10 +480,9 @@ $(document).ready(function(){
       </div>
     </div>
   </div>
-</div> -->
+</div>  -->
 
-
-<!-- //Create Note -->
+ <!-- //Create Note -->
 @if ($errors->any())
  <div class="alert alert-danger">
      <strong>อุปส์</strong>
@@ -402,10 +493,10 @@ $(document).ready(function(){
     @endforeach
 </ul>
 @endif
- <!-- Note -->
+  <!-- Note  -->
  <form action="{{ route('notes.store') }}" method="post">
     @csrf
- <button type="button" class="open-button "  data-toggle="modal" data-target="#exampleModal{{$arabic['arabic_id']}}" data-whatever="@mdo">โน๊ต</button>
+ <button type="button" class="open-button5 "  data-toggle="modal" data-target="#exampleModal{{$arabic['arabic_id']}}" data-whatever="@mdo">โน๊ต</button>
 
 
 <div class="modal fade" id="exampleModal{{$arabic['arabic_id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -438,24 +529,26 @@ $(document).ready(function(){
             <label for="recipient-name" class="control-label">ชื่อเรื่อง :</label>
             <input type="text" class="form-control" name="users_id" >
           </div>
-         -->
+          -->
         
        
 
-          <p class="cautions">*กรุณาเข้าสู่ระบบก่อนสร้างโน้ต*</p>
-        </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
+        <button type="button" class="btn btn-secodary" data-dismiss="modal">ปิด</button>
         <button type="submit" class="btn btn-success">บันทึก</button>
 
-       
+    
       </div>
       
     </div>
   </div>
 </div>
+
 </form>
+
+
+
 
 
 
@@ -490,7 +583,7 @@ $(document).ready(function(){
   <!-- Button trigger modal TAFSEER _TEXT2-->
 
  
-<button class="open-button2 "  type="button" data-toggle="collapse" data-target="#collapseExample{{$arabic['arabic_id']}}" aria-expanded="false" aria-controls="collapseExample">
+<form><button class="open-button2 "  type="button" data-toggle="collapse" data-target="#collapseExample{{$arabic['arabic_id']}}" aria-expanded="false" aria-controls="collapseExample">
 ตัฟซีร
 </button>
 <div class="collapse" id="collapseExample{{$arabic['arabic_id']}}">
@@ -498,10 +591,11 @@ $(document).ready(function(){
   <p>{{$arabic->thais->tafseer}}</p>
   </div>
 </div>
-
+<form>
 
 <hr>
 @endforeach
+</form>
 </div> 
 
 
