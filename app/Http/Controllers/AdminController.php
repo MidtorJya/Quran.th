@@ -8,7 +8,7 @@ use App\Models\Datasurah;
 use App\Models\Thai;
 use App\Models\Tafseer;
 use App\Models\User;
-use App\Models\Post;
+use App\Models\Note;
 
 use Illuminate\Support\Facades\DB;
 
@@ -69,7 +69,7 @@ class AdminController extends Controller
 
     public function managenote(){
         
-        $data = Post::first()->paginate(5);
+        $data = Note::paginate(5);
         return view('admin.managenote', compact('data'))
                 ->with('i', (request()->input('page', 1) - 1) * 5);
     //   return view('admin.managenote');

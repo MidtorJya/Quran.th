@@ -123,7 +123,7 @@ class TafseersController extends Controller
            
         ]);
         $tafseer->name = $request->name;
-        $tafseer->youyubeId = $request->youtubeId;
+        $tafseer->youtubeId = $request->youtubeId;
         $tafseer->datasurah_id = $request->datasurah_id;
         $tafseer->save();
        // $tafseer->update($request->all());
