@@ -22,7 +22,7 @@
       </li>
      
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('approvalmanagetafseer') }}">จัดการตัฟซีร</a>
+      <a class="nav-link" href="{{ route('tafseers.index') }}">จัดการวิดีโอตัฟซีร</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('approvalstatus') }}">ตรวจสอบสถานะ</a>

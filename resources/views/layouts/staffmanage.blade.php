@@ -120,11 +120,11 @@
     <ul class="navbar-nav mr-auto">
     
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('staffhome') }}">จัดการกุรอาน</a>
+        <a class="nav-link" href="{{ route('thai.index') }}">จัดการกุรอาน</a>
       </li>
    
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('staffmanagetafseer') }}">จัดการตัฟซีร</a>
+        <a class="nav-link" href="{{ route('tafseers.index') }}">จัดการตัฟซีร</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('viewstatus') }}">ติดตามสถานะ</a>

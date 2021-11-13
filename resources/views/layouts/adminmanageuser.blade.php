@@ -119,7 +119,7 @@
     <ul class="navbar-nav mr-auto">
     
       <li class="nav-item">
-        <a class="nav-link" href="{{ route('adminhome') }}">จัดการกุรอาน</a>
+        <a class="nav-link" href="{{ route('thai.index') }}">จัดการกุรอาน</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ route('user.index') }}">จัดการผู้ใช้</a>

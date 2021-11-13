@@ -36,7 +36,7 @@ class HomeController extends Controller
         // ]);
 
         $thais = Thai::paginate(10);
-        return view('admin.adminHome', compact('thais'));
+        return view('thai.index', compact('thais'));
     }
     public function adminmnquran(){
         //$datasurahs = Datasurah::paginate(20);
@@ -46,14 +46,14 @@ class HomeController extends Controller
     public function approvalhome()
     {
         $datasurahs = Datasurah::paginate(20);
-        return view('admin.approvalHome', [
+        return view('thai.index', [
             'datasurahs' => $datasurahs
         ]);
     }
     public function staffhome()
     {
         $datasurahs = Datasurah::paginate(20);
-        return view('admin.staffHome', [
+        return view('thai.index', [
             'datasurahs' => $datasurahs
         ]);
     }
