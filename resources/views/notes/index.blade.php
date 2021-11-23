@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
@@ -37,12 +37,15 @@
   </ul>
 </nav>
 </div>    
-<br>
+
 
 
 @section('content')
+<br>
+
 <div class="container">
     <div class="row justify-content-center">
+ 
         <div class="col-md-8">
             <div class="card">
              
@@ -57,6 +60,10 @@
 
 <div class="row mt-2">
     <div class ="col-md-12">
+    <!-- <h class="font-semibold text-xl text-gray-800 leading-tight">
+    ยินดีต้องรับคุณ{{Auth::user()->name}}
+
+        </h>   -->
     <center>
       <h2>โน้ตของคุณ</h2>
 </center>
@@ -79,14 +86,17 @@
     <th class="font-weight-bold" >ที่</th>
     <th class="font-weight-bold">หัวข้อ</th>
     <th class="font-weight-bold">คำอธิบาย</th>
+    <th  class="font-weight-bold" >ชื่อผู้ใช้</th>
     <th  class="font-weight-bold" >Action</th>
+    
  </tr>
 
  @foreach ($data as $key => $value)
     <tr>
-        <td>{{ $loop->iteration }}</td>
+        <td>{{ $data->firstItem()+$loop->index}} </td>
         <td>{{ $value->title }}</td>
         <td>{{ Str::limit($value->description, 100) }}</td>
+        <td>{{$value->user->name}}</td>
         <td>
          <!-- <form action="{{ route('notes.destroy', $value->id) }}" method="post">
              <a href="{{ route('notes.show', $value->id) }}" class="btn btn-primary">ดู</a>

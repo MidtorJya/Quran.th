@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Note;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class NoteController extends Controller
 {
@@ -85,12 +86,14 @@ class NoteController extends Controller
     public function index()
     {
         //
+       
         $data = Note::paginate(5);
         // return view('notes.index', compact('data'))
         //         ->with('i', (request()->input('page', 1) - 1) * 5);
 
                 // $users = User::paginate(5);
                 // $tafseers = Tafseer::paginate(5);
+                
                 return view('notes.index', compact('data'));
     }
 
@@ -119,11 +122,16 @@ class NoteController extends Controller
             'title' => 'required',
             'description' => 'required'
             // 'datasurah_id' => 'required',
-            // 'arabic_id' => 'required',
+            // 'id' => 'required',
             // 'users_id' => 'required'
         ]);
-        Note::create($request->all());
+      //  Note::create($request->all());
      //User::create($data);
+   $note = new Note;
+   $note->title=$request->title;
+   $note->description=$request->description;
+   $note->user_id=Auth::user()->id;
+   $note->save();
         return redirect()->route('notes.index')
                         ->with('success','สร้างโน้ตใหม่สำเร็จ');
     }
@@ -166,7 +174,7 @@ class NoteController extends Controller
             'title' => 'required',
             'description' => 'required'
             // 'datasurah_id' => 'required',
-            // 'arabic_id' => 'required',
+            // 'id' => 'required',
             // 'users_id' => 'required'
         ]);
         $note->update($request->all());
@@ -192,4 +200,5 @@ class NoteController extends Controller
         //                 $user->delete();
          return back();
     }
+    
 }

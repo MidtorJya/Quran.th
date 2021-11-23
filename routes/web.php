@@ -27,6 +27,8 @@ use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\ManageQuranController;
 
 use App\Http\Controllers\NoteController;
+
+use App\Http\Controllers\HighlightController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -180,6 +182,7 @@ Route::get ('/managequran{datasurah}',[AdminController::class,'managequran'])->n
 //Route::get ('admin/manageuser',[AdminController::class,'manageuser'])->name('manageuser');
 Route::get ('admin/managetafseer',[AdminController::class,'managetafseer'])->name('managetafseer');
 Route::get ('admin/managenote',[AdminController::class,'managenote'])->name('managenote');
+Route::get ('admin/shownote',[AdminController::class,'shownote'])->name('shownote');
 Route::get ('admin/editquran',[AdminController::class,'editquran'])->name('editquran');
 
 //
@@ -224,3 +227,9 @@ Route::resource('thai','ManageQuranController');
 
 //note
 Route::resource('notes','NoteController');
+
+//keyword
+Route::get('highlightkeywords', function () {
+  return view('highlightkeywords');
+  });
+  Route::get('/search_keywords', [HighlightController::class,'search_keywords']);

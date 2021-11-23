@@ -75,8 +75,13 @@ class AdminController extends Controller
     //   return view('admin.managenote');
   
     }
+    public function shownote(Note $note)
+    {
+        $data = Note::paginate(5);
+        return view('admin.shownote',compact('data'));
+    }
      public function editquran(){
-       //  $arabics = Datasurah::with('arabic.thais')->find($arabic_id);
+       //  $arabics = Datasurah::with('arabic.thais')->find($id);
         //return dd($arabics->toArray());
 
      //  return view('admin.editquran',compact('arabics'));
@@ -86,10 +91,10 @@ class AdminController extends Controller
 
     // $arabics = DB::table('datasurahs')
     // ->join('arabics','arabics.datasurah_id', '=', 'datasurahs.id')
-    // ->join('thais', 'thais.arabic_id', '=', 'arabics.arabic_id')
+    // ->join('thais', 'thais.id', '=', 'arabics.id')
  
-    // ->select('datasurahs.th_name','datasurahs.id','arabics.arabic_id', 'arabics.text','thais.Text','arabics.ayat')
-    // //->where('thais.arabic_id', '=', 'arabics.arabic_id')
+    // ->select('datasurahs.th_name','datasurahs.id','arabics.id', 'arabics.text','thais.Text','arabics.ayat')
+    // //->where('thais.id', '=', 'arabics.id')
     // ->get();
    // return dd($arabics->toArray());
     //return view('admin.editquran',compact('arabics'));
