@@ -270,7 +270,7 @@ $(document).ready(function(){
     <hr>
     <div class ="card-text">   
         <strong>แปลโดย : </strong>
-        {{ $tafseer->translator_name }}
+        {{ $tafseer->resource }}
       </div> 
       @endforeach
       </div>

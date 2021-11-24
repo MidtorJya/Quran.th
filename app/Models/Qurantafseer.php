@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Qurantafseer extends Model
 {
     use HasFactory;
+    protected $fillable = ['name','qurantafseer','resource'];
     public function tafseertext()
     {
         return $this->belongsTo(Datasurah::class,'datasurah_id');

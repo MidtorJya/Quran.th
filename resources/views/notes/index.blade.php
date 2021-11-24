@@ -67,6 +67,7 @@
     <center>
       <h2>โน้ตของคุณ</h2>
 </center>
+
 <!-- <a href="javascript:history.back()" class="btn btn-warning">กลับไปหน้าซูเราะห์</a> -->
           <a href ="{{ route('homeuser')}}" class ="btn btn-dark my-3"> Quran.th </a>
           <!-- <a href="javascript:history.back()" class="btn btn-primary">กลับ</a> -->
@@ -93,7 +94,8 @@
 
  @foreach ($data as $key => $value)
     <tr>
-        <td>{{ $data->firstItem()+$loop->index}} </td>
+       
+        <td>{{ $loop->iteration }} </td> 
         <td>{{ $value->title }}</td>
         <td>{{ Str::limit($value->description, 100) }}</td>
         <td>{{$value->user->name}}</td>
@@ -138,6 +140,6 @@
 
 </table>   
 
-{!! $data->links() !!}
+
 
 @endsection

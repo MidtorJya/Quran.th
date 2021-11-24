@@ -308,7 +308,7 @@ $(document).ready(function(){
    
     <div class ="card-text">   
         <strong>ที่มา : </strong>
-        {{ $tafseer->translator_name }}
+        {{ $tafseer->resource }}
       </div> 
       <hr>
       @endforeach

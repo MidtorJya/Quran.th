@@ -33,7 +33,7 @@
     </li> 
     @elseif (Auth::user()->is_admin=='2')
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('approvalstatus') }}">ตรวจสอบสถานะ</a>
+    <a class="nav-link" href="{{ route('showvdotafseer') }}">ตรวจสอบสถานะ</a>
       </li>
       @elseif (Auth::user()->is_admin=='3')
       <li class="nav-item">
