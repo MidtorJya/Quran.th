@@ -43,6 +43,7 @@
                     @endif
 </div>
 
+
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr></tr>
@@ -51,6 +52,7 @@
             <th scope="col">ชื่อ</th>
             <th scope="col">ตัฟซีร</th>
             <th scope="col">ที่มา</th>
+            <th scope="col">ชื่อผู้ใช้</th>
             <th scope="col">สถานะ</th>
             <th scope="col">อนุมัติ</th>
             <th scope="col">ยกเลิก</th>
@@ -65,7 +67,10 @@
             <td>{{ $tafseer->name }}</td>
             <td>{{ $tafseer->qurantafseer }}</td>
             <td>{{ $tafseer->resource }}</td>
+            <td>{{$tafseer->user->name}}</td>
+
             <td>{{ $tafseer->status }}</td>
+
             <td>
                 <a class="btn btn-success"href="
                 {{url('approvedtafseer',$tafseer->id)}}">อนุมัติ</a>
@@ -98,5 +103,7 @@
 
     </tbody>
 </table>
+{{$tafseers->links()}}
+
 
 @endsection

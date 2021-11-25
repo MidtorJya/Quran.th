@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 class ApprovalController extends Controller
 {
   public function showvdotafseer(){
-   $tafseers =Tafseer::all();
+   $tafseers =Tafseer::latest()->paginate(5);
 // {
 
 //    if(Auth::id()){
@@ -42,7 +42,8 @@ class ApprovalController extends Controller
   }
 
   public function showtafseer(){
-    $tafseers =Qurantafseer::all();
+    $tafseers =Qurantafseer::latest()->paginate(5);
+
  // {
  
  //    if(Auth::id()){

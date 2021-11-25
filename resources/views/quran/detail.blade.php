@@ -298,8 +298,9 @@ $(document).ready(function(){
       </div>
       <div class="modal-body">
        
-      @foreach($tafseers->qurantafseer as $tafseer ) <h4>{{$tafseer->name}}</h4>
-   
+      @foreach($tafseers->qurantafseer as $tafseer ) 
+      @if($tafseer->status == 'อนุมัติ') 
+      <h4>{{$tafseer->name}}</h4>
         <p>
        
       {{$tafseer->qurantafseer}} 
@@ -311,6 +312,7 @@ $(document).ready(function(){
         {{ $tafseer->resource }}
       </div> 
       <hr>
+      @endif  
       @endforeach
       </div>
       <div class="modal-footer">
@@ -343,6 +345,7 @@ $(document).ready(function(){
                         </div>
                         <div class="modal-body">
                         @foreach($datasurah->tafseer as $tafseer )
+                           @if($tafseer->status == 'อนุมัติ') 
                         <p>{{$tafseer->name}}</p>
                             <iframe id="Geeks3" width="450" height="350"
                            src="https://www.youtube.com/embed/{{$tafseer->youtubeId}}"
@@ -351,7 +354,7 @@ $(document).ready(function(){
                             <br>
                             <br>
                           
-                            
+                          @endif  
                             @endforeach
                         </div>
 

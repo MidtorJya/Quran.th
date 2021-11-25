@@ -256,7 +256,9 @@ $(document).ready(function(){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        @foreach($tafseers->qurantafseer as $tafseer ) <h4 class="modal-title" id="myModalLabel2">{{$tafseer->name}}</h4>
+        @foreach($tafseers->qurantafseer as $tafseer ) 
+        @if($tafseer->status == 'อนุมัติ') 
+<h4 class="modal-title" id="myModalLabel2">{{$tafseer->name}}</h4>
       </div>
       <div class="modal-body">
        
@@ -272,6 +274,7 @@ $(document).ready(function(){
         <strong>แปลโดย : </strong>
         {{ $tafseer->resource }}
       </div> 
+      @endif
       @endforeach
       </div>
       <div class="modal-footer">

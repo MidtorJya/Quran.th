@@ -43,6 +43,8 @@
                     @endif
 </div>
 
+
+
 <table class="table table-striped table-hover table-bordered">
     <thead>
         <tr></tr>
@@ -50,6 +52,8 @@
             <th scope="col">ที่</th>
             <th scope="col">ชื่อซูเราะห์</th>
             <th scope="col">YoutubeID</th>
+            <th scope="col">ชื่อผู้ใช้</th>
+
             <th scope="col">สถานะ</th>
             <th scope="col">อนุมัติ</th>
             <th scope="col">ยกเลิก</th>
@@ -63,7 +67,10 @@
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ $tafseer->name }}</td>
             <td>{{ $tafseer->youtubeId }}</td>
+            <td>{{$tafseer->user->name}}</td>
+
             <td>{{ $tafseer->status }}</td>
+            
             <td>
                 <a class="btn btn-success"href="
                 {{url('approvedvdotafseer',$tafseer->id)}}">อนุมัติ</a>
@@ -96,5 +103,6 @@
 
     </tbody>
 </table>
+{{$tafseers->links()}}
 
 @endsection
