@@ -19,7 +19,9 @@
     <li class="nav-item">
       <a class="nav-link" href="{{ route('thai.index') }}">จัดการกุรอาน</a>
     </li>
- 
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('qurantafseers.index') }}">จัดการกุรอานตัฟซีร</a>
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('tafseers.index') }}">จัดการวิดีโอตัฟซีร</a>
     </li>

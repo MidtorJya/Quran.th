@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -49,11 +49,11 @@ class LoginController extends Controller
 
     if(auth()->attempt(array('email' => $input['email'],'password' => $input['password']))){
         if (auth()->user()->is_admin ==1 ){
-            return redirect()->route('qurantafseers.index');
+            return redirect()->route('thai.index');
         }else if (auth()->user()->is_admin ==2 ){
-            return redirect()->route('qurantafseers.index');
+            return redirect()->route('thai.index');
         }else if (auth()->user()->is_admin ==3 ){
-            return redirect()->route('qurantafseers.index');
+            return redirect()->route('thai.index');
         }else {
             return redirect()->route('homeuser');
         }

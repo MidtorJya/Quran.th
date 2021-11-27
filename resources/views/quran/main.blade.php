@@ -41,12 +41,36 @@ body {font-family: "Lato", sans-serif}
 </div>
 
 <!-- Page content -->
-<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+<div class="w3-content" style="background-color:#9be2cd;" width="100%;" margin-top="46px">
 
   <!-- Automatic Slideshow Images -->
   <div class="mySlides w3-display-container w3-center">
-    <img src="/w3images/la.jpg" style="width:100%">
-    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+  <img src="{{ URL::to('img/logo-lg-w.png') }}" width="100%;" >
+    
+  </div>
+  @foreach($datasurahs as $datasurah) 
+  <button class="w3-button w3-black w3-section " type="submit">{{ $datasurah->surah_arab}}</button>
+  @endforeach 
+  <!-- @foreach($datasurahs as $datasurah)     
+<div class="col-sm-3">
+ <a href="{{ route('home') }}">
+  <button style= "height: 90px; width:290px; 
+
+  type="buttom" class="btn btn-outline-light" >
+  <p class="arabic" >{{ $datasurah->surah_arab}}</p>
+  <span >{{ $datasurah->th_name}}</span></button></a>
+</div>
+@endforeach -->
+<!-- <div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+   Automatic Slideshow Images 
+
+  <div style = background-color:#9be2cd;>
+
+    <img src="{{ URL::to('img/logo-lg-w.png') }}" >
+</div> -->
+    <!-- <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Los Angeles</h3>
       <p><b>We had the best time playing at Venice Beach!</b></p>   
     </div>
@@ -57,37 +81,43 @@ body {font-family: "Lato", sans-serif}
       <h3>New York</h3>
       <p><b>The atmosphere in New York is lorem ipsum.</b></p>    
     </div>
-  </div>
-  <div class="mySlides w3-display-container w3-center">
-    <img src="/w3images/chicago.jpg" style="width:100%">
+  </div> -->
+  <!-- <div class="mySlides w3-display-container w3-center">
+     <img src="/w3images/chicago.jpg" style="width:100%"> 
+
+    <div style = background-color:#9be2cd;>
+
+<img src="{{ URL::to('img/logo-lg-w.png') }}" >
+</div>
     <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
       <h3>Chicago</h3>
       <p><b>Thank you, Chicago - A night we won't forget.</b></p>    
     </div>
-  </div>
+  </div> -->
 
   <!-- The Band Section -->
-  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-    <h2 class="w3-wide">THE BAND</h2>
-    <p class="w3-opacity"><i>We love music</i></p>
-    <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
-      </div>
-      <div class="w3-third">
-        <p>Name</p>
-        <img src="/w3images/bandmember.jpg" class="w3-round" alt="Random Name" style="width:60%">
-      </div>
-    </div>
-  </div>
+  <!-- <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:1000px" id="band">
+   
+
+     <div style = background-color:#9be2cd;>
+
+    
+     @foreach($datasurahs as $datasurah)     
+<div class="col-sm-3">
+ <a href="{{ route('arabic', $datasurah) }}">
+  <button style= "height: 90px; width:240px; 
+  margin-top: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;"  
+  type="buttom" class="btn btn-outline-light" >
+  <p class="arabic" >{{ $datasurah->surah_arab}}</p>
+  <span >{{ $datasurah->th_name}}</span></button></a>
+</div>
+<br>
+        @endforeach
+</div>
+  </div> -->
 
   <!-- The Tour Section -->
   <div class="w3-black" id="tour">

@@ -380,6 +380,8 @@ $(document).ready(function(){
     </script>
 
 
+
+
 <!-- dropdown : can not link
            <li class="list-group-item bg-dark list-group-item-secondary">	<select id="surahlist" class="surah-list bg-dark">  @foreach($datas as $data) <option  value={{$data->id}}>
     <li><a href="{{ route('arabic', $data) }}">{{$data->th_name}}</a></li>
@@ -409,7 +411,7 @@ $(document).ready(function(){
                  <div>
    
     <select class="form-control "  name="forma" onchange="location = this.options[this.selectedIndex].value;" id="surah_list">
-    <option value="#" style="color:white">ซูเราะห์</option>
+    <option value="#" style="color:white" >ซูเราะห์</option>
     @foreach($datas as $data)
     <option value="{{ route('arabic', $data) }}" title="{{$data->th_name}}">
 {{$data->th_name}} [{{$data->whole_ayah}}]</option>@endforeach </select>
@@ -484,6 +486,8 @@ $(document).ready(function(){
                 </div>
                 </div>
                 @foreach($arabics->arabic as $arabic )
+                
+
       <div class="quran-font-intro ">
         <p>
         {{$arabic->text}}
@@ -491,9 +495,10 @@ $(document).ready(function(){
       
       </div>
       <p class="t">{{$arabic->transliteration}}</p>
-   
+      <!-- checked ststus before display on screen if user CRUD Quran -->
+      @if($arabic->thais->status == 'อนุมัติ') 
             <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
-          
+      @endif
             <br>
             <audio controls >
                 <source src="/mp3/{{$arabic->thais->audio}}" type="audio/mpeg">
@@ -648,17 +653,20 @@ $(document).ready(function(){
   <!-- Button trigger modal TAFSEER _TEXT2-->
 
  
-<button class="open-button2 "  type="button" data-toggle="collapse" data-target="#collapseExample{{$arabic['id']}}" aria-expanded="false" aria-controls="collapseExample">
+<button class="open-button2 "  type="button" data-toggle="collapse"
+ data-target="#collapseExample{{$arabic['id']}}" aria-expanded="false" aria-controls="collapseExample">
 ตัฟซีร
 </button>
 <div class="collapse" id="collapseExample{{$arabic['id']}}">
   <div class="well">
+  @if($arabic->thais->tafseer == '')  <p class="cautions">*อายะห์นี้ยังไม่มีตัฟซีรภาษาไทย*</p> @endif
   <p>{{$arabic->thais->tafseer}}</p>
   </div>
 </div>
 
 
 <hr>
+
 @endforeach
 </div> 
 

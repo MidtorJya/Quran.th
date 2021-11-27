@@ -40,7 +40,7 @@ class HomeController extends Controller
         // return view('thai.index', compact('thais'));
         if(Auth::id()){
             $userid=Auth::user()->id;
-            $tafseers = Qurantafseer::where('user_id',$userid)->get();
+            $tafseers = qurantafseer::where('user_id',$userid)->get();
             return view('qurantafseers.index',compact('tafseers'));
         }
     }

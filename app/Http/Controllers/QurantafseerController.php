@@ -117,11 +117,14 @@ class QurantafseerController extends Controller
            
             
          ]);
+      
          $qurantafseer->name=$request->name;
          $qurantafseer->qurantafseer=$request->qurantafseer;
          $qurantafseer->resource=$request->resource;
          $qurantafseer->datasurah_id=$request->datasurah_id;
          $qurantafseer->arabic_id=$request->arabic_id;
+         $qurantafseer->status='รอตรวจสอบ';
+
          $qurantafseer->save();
         // $tafseer->update($request->all());
          return redirect()->route('qurantafseers.index');

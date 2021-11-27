@@ -15,8 +15,19 @@ use Illuminate\Support\Facades\Auth;
 
 class ApprovalController extends Controller
 {
+  public function shownote(){
+    $tafseers =Note::latest()->paginate(5);
+    // return dd($tafseers);
+ // {
+ 
+ //    if(Auth::id()){
+ //        $userid=Auth::user()->id;
+ //        $tafseers = Tafseer::where('user_id',$userid)->get();
+  return view('approval.shownote',compact('tafseers'));
+     }
   public function showvdotafseer(){
    $tafseers =Tafseer::latest()->paginate(5);
+   // return dd($tafseers);
 // {
 
 //    if(Auth::id()){
@@ -40,6 +51,33 @@ class ApprovalController extends Controller
     $tafseers->save();
     return redirect()->back();
   }
+
+  //managequran
+  public function showquran(){
+    $thais =Thai::first()->paginate(10);
+ // {
+ 
+ //    if(Auth::id()){
+ //        $userid=Auth::user()->id;
+ //        $tafseers = Tafseer::where('user_id',$userid)->get();
+  return view('approval.showquran',compact('thais'));
+     }
+   
+   public function approvedquran($id)
+   {
+     $thais=thai::find($id);
+     $thais->status='อนุมัติ';
+     $thais->save();
+     return redirect()->back();
+   }
+ 
+   public function cancledquran($id)
+   {
+     $thais=thai::find($id);
+     $thais->status='ยกเลิก';
+     $thais->save();
+     return redirect()->back();
+   }
 
   public function showtafseer(){
     $tafseers =Qurantafseer::latest()->paginate(5);

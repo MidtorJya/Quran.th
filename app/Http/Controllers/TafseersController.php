@@ -145,6 +145,8 @@ class TafseersController extends Controller
         $tafseer->name = $request->name;
         $tafseer->youtubeId = $request->youtubeId;
         $tafseer->datasurah_id = $request->datasurah_id;
+        $tafseer->status='รอตรวจสอบ';
+
         $tafseer->save();
        // $tafseer->update($request->all());
         return redirect()->route('tafseers.index');
