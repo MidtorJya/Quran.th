@@ -1,6 +1,5 @@
 @extends('quran.navbar')
 @section('content')
-<!--<h3 class="text-center text-dark">{{$arabics->th_name}}</h3> -->
 
 <link rel="stylesheet" href=
 "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -99,144 +98,7 @@
     <div class="col-md-8 mx-auto">
   
       
-    <!-- <body>
-  <input type="text" id="searchtxt" />
-  <input type="button" value="search" onClick="replaceText();" id="highlightButton" />
-  <p>
-    The ACM Digital Library, a part of the ACM Portal, contains a comprehensive archive of the organization's journals, magazines, and conference proceedings. Online services include a forum called Ubiquity and Tech News digest.
     
-    ACM requires the copyright of all submissions to be assigned to the organization as a condition of publishing the work.[2] Authors may post the documents on their own websites, but they are required to link back to the digital library's reference page for the paper. Though authors are not allowed to charge for access to copies of their work, downloading a copy from the ACM site requires a paid subscription.
-  </p> 
- </body>
-
- <script>
-   function replaceText() {
-
-$("body").find(".highlight").removeClass("highlight");
-
-var searchword = $("#searchtxt").val();
-
-var custfilter = new RegExp(searchword, "ig");
-var repstr = "<span class='highlight'>" + searchword + "</span>";
-
-if (searchword != "") {
-    $('body').each(function() {
-        $(this).html($(this).html().replace(custfilter, repstr));
-    })
-}
-}
-   </script> -->
-  
-
-  
- <!--  vdo Tafseer link all
-    <a href="{{ route('tafseer_detail',$datasurah) }}" class="link-dark" >วิดีโอตัฟซีร ซูเราะห์ {{$arabics->th_name}} </a>
-    -->
-  
-    <!-- popup vdo
-<br>
-<br>
-    <div class="bs-example">
-    <!-- Button HTML (to Trigger Modal) 
-    <a href="#myModal" class="btn btn-secondary" data-toggle="modal">วิดีโอตัฟซีร</a>
-    
-    <!-- Modal HTML 
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                
-                    <h5 class="modal-title">วิดีโอ</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                
-                  <div class="embed-responsive embed-responsive-16by9">
-                  @foreach($datasurah->tafseer as $tafseer )
-                    <iframe id="cartoonVideo" class="embed-responsive-item" width="560" height="315" src="//www.youtube.com/embed/{{$tafseer->youtubeId}}" allowfullscreen></iframe>
-                  @endforeach
-                  </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>     
-    <script>
-$(document).ready(function(){
-    /* Get iframe src attribute value i.e. YouTube video url
-    and store it in a variable */
-    var url = $("#cartoonVideo").attr('src');
-    
-    /* Assign empty url value to the iframe src attribute when
-    modal hide, which stop the video playing */
-    $("#myModal").on('hide.bs.modal', function(){
-        $("#cartoonVideo").attr('src', '');
-    });
-    
-    /* Assign the initially stored url back to the iframe src
-    attribute when modal is displayed again */
-    $("#myModal").on('show.bs.modal', function(){
-        $("#cartoonVideo").attr('src', url);
-    });
-});
-</script>
--->
-
-<!-- dropdown (causes_cat)
-<br>
-<div class="container mt-4">
-        <div class="row">
-         <div class="col-md-4">
-             
-                <div class="form-s2">
-                    <div>
-                        <select class="form-control formselect required "  placeholder="Select Category"
-                            id="sub_category_name">
-                            <option value="0" disabled selected> เลือกซูเราะห์*</option>
-                            @foreach($datas as $categories)
-                            <option  value="{{ $categories->id }}">
-                                {{ ucfirst($categories->th_name) }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-          
-                <select class="form-control formselect required" placeholder="Select Sub Category" id="sub_category"
-                    >
-                </select>
-            </div>
-
-        </div>
-        <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
-        
-    <script>
-                $(document).ready(function () {
-                $('#sub_category_name').on('change', function () {
-                let id = $(this).val();
-                $('#sub_category').empty();
-                $('#sub_category').append(`<option value="0" disabled selected>Processing...</option>`);
-                $.ajax({
-                type: 'GET',
-                url: 'GetSubCatAgainstMainCatEdit/' + id,
-                success: function (response) {
-                var response = JSON.parse(response);
-                console.log(response);   
-                $('#sub_category').empty();
-                $('#sub_category').append(`<option value="0" disabled selected>อายะห์</option>`);
-                response.forEach(element => {
-                    $('#sub_category').append(`<option value="${element['datasurah_id']}">${element['ayat']}</option>`);
-                    });
-                }
-            });
-        });
-    });
-    </script>
- 
-    
-    -->
 
 
 <br>
@@ -260,14 +122,16 @@ $(document).ready(function(){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">{{$arabics->surah_arab}}</h4>
+        @foreach($datas as $data)
+        <h4 class="modal-title" id="myModalLabel">{{$data->surah_arab}}</h4>
+   @endforeach
       </div>
       <div class="modal-body">
        
 
       <div class="quran-font-intro ">
         <p>
-        @foreach($arabics->arabic as $arabic ) 
+        @foreach($arabics->arabic as $arabic )
       {{$arabic->text}} 
        [{{$arabic->thais->ayat}}]
       @endforeach</p>
@@ -300,7 +164,7 @@ $(document).ready(function(){
        
       @foreach($tafseers->qurantafseer as $tafseer ) 
       @if($tafseer->status == 'อนุมัติ') 
-      <h4>{{$tafseer->name}}</h4>
+      <h4>{{$tafseer->name}}(อายะห์ที่ {{$tafseer->arabic_id}})</h4>
         <p>
        
       {{$tafseer->qurantafseer}} 
@@ -382,26 +246,7 @@ $(document).ready(function(){
 
 
 
-<!-- dropdown : can not link
-           <li class="list-group-item bg-dark list-group-item-secondary">	<select id="surahlist" class="surah-list bg-dark">  @foreach($datas as $data) <option  value={{$data->id}}>
-    <li><a href="{{ route('arabic', $data) }}">{{$data->th_name}}</a></li>
-    @endforeach</option></select> </li>
 
-    <select id="list" onchange="getSelectValue();">
-    @foreach($datas as $data)
-            <option value="{{ route('arabic', $data) }}">{{$data->th_name}}</option>
-            @endforeach
-        </select>
-    <script>
-        
-        function getSelectValue()
-        {
-            var selectedValue = document.getElementById("list").value;
-            console.log(selectedValue);
-        }
-        getSelectValue();
-
-    </script> -->
    
 
     <!-- dropdown : can link-->
@@ -416,19 +261,7 @@ $(document).ready(function(){
     <option value="{{ route('arabic', $data) }}" title="{{$data->th_name}}">
 {{$data->th_name}} [{{$data->whole_ayah}}]</option>@endforeach </select>
 
-<!-- <script>
-(document).ready(function() {
-    $('#select').css('color','gray');
-    $('#select').change(function() {
-       var current = $('#select').val();
-       if (current != 'null') {
-           $('#select').css('color','black');
-       } else {
-           $('#select').css('color','gray');
-       }
-    }); 
-});
-     </script> -->
+
       
     </div>
     </div>
@@ -458,22 +291,7 @@ $(document).ready(function(){
     
  
 
-    <!-- Example single danger button 
-<div class="btn-group">
-  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    Action
-  </button>
-  <ul class="dropdown-menu">
-  @foreach($datas as $data)
-    <li><a class="dropdown-item" href="{{ route('arabic', $arabics) }}">{{$data->th_name}}</a></li>
-    @endforeach
-  </ul>
-</div>
 
-
-     <li class="list-group-item  list-group-item-secondary"> <select id="ayahlist" class="ayah-list"><option  value="0" rel="0" >0-0</option>
-           <option  value="1" rel="3" >1-3</option><option  value="4" rel="5" >4-5</option><option  value="6" rel="6" >6-6</option><option  value="7" rel="8" >7-8</option><option  value="9" rel="10" >9-10</option><option  value="11" rel="13" >11-13</option><option  value="14" rel="17" >14-17</option><option  value="18" rel="19" >18-19</option><option  value="20" rel="20" >20-20</option><option  value="21" rel="22" >21-22</option><option  value="23" rel="24" >23-24</option><option  value="25" rel="25" >25-25</option><option  value="26" rel="27" >26-27</option><option  value="28" rel="29" >28-29</option><option  value="30" rel="31" >30-31</option><option  value="32" rel="34" >32-34</option><option  value="35" rel="35" >35-35</option><option  value="36" rel="36" >36-36</option><option  value="37" rel="37" >37-37</option><option  value="38" rel="38" >38-38</option><option  value="39" rel="40" >39-40</option><option  value="41" rel="44" >41-44</option><option  value="45" rel="48" >45-48</option><option  value="49" rel="49" >49-49</option><option  value="50" rel="50" >50-50</option><option  value="51" rel="51" >51-51</option><option  value="52" rel="52" >52-52</option><option  value="53" rel="54" >53-54</option><option  value="55" rel="55" >55-55</option><option  value="56" rel="56" >56-56</option><option  value="57" rel="58" >57-58</option><option  value="59" rel="62" >59-62</option><option  value="63" rel="68" >63-68</option><option  value="69" rel="69" >69-69</option><option  value="70" rel="71" >70-71</option><option  selected  value="72" rel="73" >72-73</option></select>   </li>
-  -->
           </ul>
 
   <br>
@@ -554,98 +372,6 @@ $(document).ready(function(){
 
 
 
-<!-- //Create Note
-@if ($errors->any())
- <div class="alert alert-danger">
-     <strong>อุปส์</strong>
-     มีบางอย่างผิดพลาด <br><br>
-<ul>
-    @foreach($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-</ul>
-@endif
-  Note 
- <form action="{{ route('notes.store') }}" method="post">
-    @csrf
- <button type="button" class="open-button "  data-toggle="modal" data-target="#exampleModal{{$arabic['id']}}" data-whatever="@mdo">โน๊ต</button>
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">สร้างโน้ต</h4>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">ชื่อเรื่อง :</label>
-            <input type="text" class="form-control" name="title" >
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">คำอธิบาย :</label>
-            <textarea class="form-control"name="description"></textarea>
-          </div> -->
-          <!-- <div class="form-group">
-            <label for="recipient-name" class="control-label">ชื่อเรื่อง :</label>
-            <input type="text" class="form-control" name="datasurah_id" >
-          </div>
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">ชื่อเรื่อง :</label>
-            <input type="text" class="form-control" name="id" >
-          </div>
-        
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">ชื่อเรื่อง :</label>
-            <input type="text" class="form-control" name="users_id" >
-          </div>
-         -->
-        
-<!--        
-
-          <p class="cautions">*กรุณาเข้าสู่ระบบก่อนสร้างโน้ต*</p>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">ปิด</button>
-        <button type="submit" class="btn btn-success">บันทึก</button>
-
-       
-      </div>
-      
-    </div>
-  </div>
-</div>
-</form> -->
-
-
-
-                <!-- Button trigger modal TAFSEER _TEXT
-            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" 
-            data-bs-target="#staticBackdrop{{$arabic['id']}}">ตัฟซีร</button>
-
-<!-- Modal 
-<div class="modal fade" id="staticBackdrop{{$arabic['id']}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog ">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">{{$arabics->th_name}} อายะห์ที่ {{$arabic->thais->ayat}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">ปิด</button>
-    
-      </div>
-    </div>
-  </div>
-</div>
-
--->
 
 
 
