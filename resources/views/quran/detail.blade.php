@@ -96,21 +96,12 @@
  <div style = background-color:#00000; class="search-area">
  <div class="row">
     <div class="col-md-8 mx-auto">
-  
-      
-    
-
-
 <br>
 <br>
 
- 
+<ul class="list-group bg-white list-group-horizontal  ">
 
-  <ul class="list-group bg-white list-group-horizontal  ">
-
-
-
-<!-- read -->
+<!-- read quran-->
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-dark " data-toggle="modal" data-target="#myModal">
   โหมดอ่านอัลกุรอาน
@@ -122,9 +113,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        @foreach($datas as $data)
-        <h4 class="modal-title" id="myModalLabel">{{$data->surah_arab}}</h4>
-   @endforeach
+        <h4 class="modal-title" id="myModalLabel">{{$arabics->surah_arab}}</h4>
       </div>
       <div class="modal-body">
        
@@ -146,7 +135,7 @@
   </div>
 </div>
 
-<!-- read -->
+<!-- tafseer -->
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-dark " data-toggle="modal" data-target="#myModal2">
   ตัฟซีรอัลกุรอาน
@@ -188,10 +177,6 @@
 </div>
 
      <!--VDO Tafseer -->
-  
-
-
-
   <div class="bs-example">
             <a href="#Geeks2"
                class="btn  btn-dark"
@@ -223,9 +208,9 @@
                         </div>
 
                         <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal">ปิด</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">ปิด</button>
        
-      </div>
+                     </div>
                     </div>
                 </div>
           </div>
@@ -244,12 +229,7 @@
     </script>
 
 
-
-
-
-   
-
-    <!-- dropdown : can link-->
+<!-- dropdown surah&& ayah : can link-->
     <div class="col-md-3 ">
              
              <div class="form-s2 ">
@@ -259,10 +239,7 @@
     <option value="#" style="color:white" >ซูเราะห์</option>
     @foreach($datas as $data)
     <option value="{{ route('arabic', $data) }}" title="{{$data->th_name}}">
-{{$data->th_name}} [{{$data->whole_ayah}}]</option>@endforeach </select>
-
-
-      
+   {{$data->th_name}} [{{$data->whole_ayah}}]</option>@endforeach </select>
     </div>
     </div>
     </div>
@@ -275,53 +252,41 @@
    <option value="{{$arabic->thais->ayat}}">{{$arabic->thais->ayat}}</option> 
     @endforeach
    </select>
-
-
    
-
-
-<script>var urlmenu = document.getElementById( 'menu1' );
- urlmenu.onchange = function() {
+  <script>var urlmenu = document.getElementById( 'menu1' );
+     urlmenu.onchange = function() {
       window.open( 'viewclass.php?classname=' + this.options[ this.selectedIndex ].value );
- };</script> 
+  };</script> 
 
-
-
-
-    
- 
-
-
-          </ul>
-
-  <br>
-  <br>
+</ul>
+<br>
+<br>
+<!-- detail The Quran -->
          <h4 class="arabic text-center ">[{{$arabics->surah_arab}}]{{$arabics->th_name}}</h4>
          <br> 
          
          <div class="col-sm-3">
-                <div class="form-group row">
-                </div>
-                </div>
-                @foreach($arabics->arabic as $arabic )
+         <div class="form-group row">
+        </div>
+        </div>
+        @foreach($arabics->arabic as $arabic )
                 
-
-      <div class="quran-font-intro ">
+        <div class="quran-font-intro ">
         <p>
         {{$arabic->text}}
         </p>
       
-      </div>
-      <p class="t">{{$arabic->transliteration}}</p>
-      <!-- checked ststus before display on screen if user CRUD Quran -->
-      @if($arabic->thais->status == 'อนุมัติ') 
-            <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
-      @endif
-            <br>
-            <audio controls >
-                <source src="/mp3/{{$arabic->thais->audio}}" type="audio/mpeg">
-            </audio>
-            <br>
+       </div>
+       <p class="t">{{$arabic->transliteration}}</p>
+       <!-- checked ststus before display on screen if user CRUD Quran -->
+       @if($arabic->thais->status == 'อนุมัติ') 
+      <p class="latin">[{{$arabic->thais->ayat}}]{{$arabic->thais->Text}}</p>
+       @endif
+      <br>
+      <audio controls >
+      <source src="/mp3/{{$arabic->thais->audio}}" type="audio/mpeg">
+      </audio>
+      <br>
           
             
             <!-- Bookmark
@@ -363,40 +328,25 @@
       <!-- <a href ="{{ route('login')}}" class ="btn btn-dark my-3">ไปหน้าเข้าสู่ระบบ</a> -->
       <button type="button" class="btn btn-dark">บันทึก</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-        
-        
-      </div>
+         </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-  <!-- Button trigger modal TAFSEER _TEXT2-->
-
- 
-<button class="open-button2 "  type="button" data-toggle="collapse"
+<!-- Button trigger modal TAFSEER -->
+ <button class="open-button2 "  type="button" data-toggle="collapse"
  data-target="#collapseExample{{$arabic['id']}}" aria-expanded="false" aria-controls="collapseExample">
-ตัฟซีร
-</button>
-<div class="collapse" id="collapseExample{{$arabic['id']}}">
+ ตัฟซีร
+ </button>
+ <div class="collapse" id="collapseExample{{$arabic['id']}}">
   <div class="well">
   @if($arabic->thais->tafseer == '')  <p class="cautions">*อายะห์นี้ยังไม่มีตัฟซีรภาษาไทย*</p> @endif
   <p>{{$arabic->thais->tafseer}}</p>
   </div>
 </div>
 
-
 <hr>
 
 @endforeach
 </div> 
-
-
-
-
 @endsection
