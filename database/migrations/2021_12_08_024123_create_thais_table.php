@@ -21,6 +21,7 @@ class CreateThaisTable extends Migration {
 			$table->string('Text', 1900);
 			$table->string('audio', 191);
 			$table->text('tafseer');
+			$table->string('status', 20);
 			$table->timestamps(10);
 		});
 	}

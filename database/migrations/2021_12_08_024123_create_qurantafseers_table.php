@@ -20,7 +20,10 @@ class CreateQurantafseersTable extends Migration {
 			$table->text('qurantafseer');
 			$table->integer('arabic_id')->index('arabic_id');
 			$table->string('resource');
+			$table->string('status', 20);
+			$table->integer('user_id');
 			$table->integer('datasurah_id')->index('datasurah_id');
+			$table->timestamps(10);
 		});
 	}
 

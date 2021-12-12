@@ -17,7 +17,7 @@ class CreateArabicsTable extends Migration {
 		{
 			$table->integer('id', true);
 			$table->integer('datasurah_id')->index('id');
-			$table->integer('ayat');
+			$table->integer('ayat')->index('ayat');
 			$table->string('text', 1900);
 			$table->text('transliteration');
 		});
