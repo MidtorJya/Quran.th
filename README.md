@@ -7,7 +7,8 @@ The Quran Web application in Thai Language : my senior project of IT student
 
 -Download : Wamp or mamp\
 -Create a database locally named `Quran`  utf8_general_ci\
--Download composer https://getcomposer.org/download/\
+-Download composer https://getcomposer.org/download/
+ \
 -Pull Laravel/php project from git provider.\
 -Copy all in `.env.example`, paste to new file and named to `.env` in your project root and fill the database information\
 -Open the console and cd your project root directory\
